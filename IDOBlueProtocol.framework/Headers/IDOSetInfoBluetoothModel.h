@@ -769,6 +769,10 @@
  */
 @property (nonatomic,assign) BOOL allOnOff;
 /**
+ 通知状态总开关 0:无效 1:全部允许通知 2:全部静默通知 3:全部关闭通知
+ */
+@property (nonatomic,assign) NSInteger allNotifyState;
+/**
  通知状态集合 ｜  items
 */
 @property (nonatomic,copy) NSArray <IDOSetAppNotifyStateItemModel *>* items;
@@ -2716,6 +2720,12 @@
  * Language units, specific types can be found in IDO_ LANGUAGE_ TYPE
  */
 @property (nonatomic,assign) IDO_LANGUAGE_TYPE languageUnit;
+
+/**
+ * 固件默认语言单位 , 具体类型查看 IDO_LANGUAGE_TYPE
+ * Language units, specific types can be found in IDO_ LANGUAGE_ TYPE
+ */
+@property (nonatomic,assign) IDO_LANGUAGE_TYPE defaultLanguageUnit;
 
 /**
  * 走路步伐 根据男性换算 默认值 72 （单位 ：cm）
