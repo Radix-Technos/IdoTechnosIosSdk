@@ -997,6 +997,16 @@ error flag
 @property (nonatomic,assign) BOOL supportSetNoiseOverwarning;
 
 /**
+ 支持设置应用列表壁纸
+ */
+@property (nonatomic, assign) BOOL supportOperateApplistWallpaper;
+
+/**
+ 支持显示V3运动记录展示配置
+ */
+@property (nonatomic, assign) BOOL supportV3SportRecordShowConfig;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable37BluetoothModel
@@ -4552,5 +4562,5 @@ error flag
  */
 + (IDOGetBpVersionBluetoothModel *)currentModel;
 
-
 @end
+

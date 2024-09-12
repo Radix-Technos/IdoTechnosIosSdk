@@ -55,7 +55,11 @@ typedef NS_ENUM(NSInteger, IDO_DATA_FILE_TRAN_TYPE) {
     /**
      音乐文件 | music file type
      */
-    IDO_DATA_FILE_TRAN_MUSIC_TYPE = 5
+    IDO_DATA_FILE_TRAN_MUSIC_TYPE = 5,
+    /**
+     应用列表壁纸文件 | Application list wallpaper
+     */
+    IDO_DATA_FILE_TRAN_APPLICATION_LIST_WALLPAPER_TYPE = 6
 };
 
 /**

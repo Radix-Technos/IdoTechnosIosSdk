@@ -30,9 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 //gps操作代理对象 | gps operation proxy object
 @property (nonatomic,weak)id<IDOGpsManagerDelegate> delegate;
 
-
 + (IDOGpsManager *)shareInstance;
 
+
+/// 手动更新更新GPS EPO | Update the GPS EP manually
+- (void)forceUpdateGpsInfo;
 /**
  * 制作GPS文件
  * filePath:  素材路径, 也是输出文件的路径

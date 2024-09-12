@@ -11,6 +11,160 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ====  设置V3运动记录显示配置 model ====
+
+@interface IDOV3SportRecordItem:NSObject
+
+/**
+  运动记录类型
+ */
+@property (nonatomic,assign) NSInteger displayItemType;
+
+/**
+ 具体显示项内容
+ */
+@property (nonatomic,copy) NSString* displayItem;
+
+@end
+
+@interface IDOV3SportRecordConfigItem:NSObject
+
+/**
+ 运动记录类型显示项数组
+ */
+@property (nonatomic,copy) NSArray<IDOV3SportRecordItem*>* displayItems;
+
+/**
+ 运动记录类型显示项个数，最大不能超过25
+ */
+@property (nonatomic,assign) NSInteger displayItemsNum;
+
+/**
+ 运动类型数组
+ */
+@property (nonatomic,copy) NSArray<NSNumber*>* sportTypeList;
+
+/**
+ 运动类型个数，最大5个
+ */
+@property (nonatomic,assign) NSInteger sportTypeListNum;
+
+
+@end
+
+@interface IDOV3SportRecordShowConfigDefaultItem:IDOBluetoothBaseModel
+
+/**
+ 运动记录类型显示项数组
+ */
+@property (nonatomic,copy) NSArray<IDOV3SportRecordItem*>* displayItems;
+
+/**
+ 运动记录类型显示项个数，最大不能超过25
+ */
+@property (nonatomic,assign) NSInteger displayItemsNum;
+
+@end
+
+@interface IDOSetV3SportRecordShowConfigModel:IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger configVersion;
+/**
+ 运动记录显示项个数
+ */
+@property (nonatomic, assign) NSInteger itemsNum;
+
+/**
+ 操作  1:增 2:删 3:查 4:改
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 支持的操作
+ */
+@property (nonatomic, assign) NSInteger supportOperate;
+
+/**
+ 运动记录显示项内容
+ */
+@property (nonatomic,copy) NSArray<IDOV3SportRecordConfigItem *>* items;
+ 
+/**
+ 默认运动记录显示项内容
+ */
+@property (nonatomic,copy) IDOV3SportRecordShowConfigDefaultItem* defaultItems;
+
++(IDOSetV3SportRecordShowConfigModel *)currentModel;
+
+@end
+
+#pragma mark ====  设置应用列表壁纸 model ====
+@interface IDOSetAppListWallpaperItemModel: IDOBluetoothBaseModel
+
+//应用列表壁纸序号 从0开始
+@property (nonatomic,assign) NSInteger index;
+
+//当前应用列表壁纸占用空间 单位byte
+@property (nonatomic,assign) NSInteger size;
+
+//字体颜色
+@property (nonatomic,copy) NSString *fontColor;
+
+//名字
+@property (nonatomic,copy) NSString *wallpaperName;
+
+
+@end
+
+@interface IDOSetAppListWallpaperResModel: IDOBluetoothBaseModel
+
+@property (nonatomic,assign) NSInteger wallpaperVersion;
+
+//操作 1:设置 2:查询 3:删除
+@property (nonatomic,assign) NSInteger operate;
+
+
+//应用列表壁纸的总个数
+@property (nonatomic,assign) NSInteger totalNum;
+
+//应用列表壁纸的已经使用个数,最大个数20
+@property (nonatomic,assign) NSInteger itemNum;
+
+//应用列表壁纸的总容量，单位Byte
+@property (nonatomic,assign) NSInteger totalCapacitySize;
+
+//应用列表壁纸的已经使用容量，单位Byte
+@property (nonatomic,assign) NSInteger usedCapacitySize;
+
+
+//应用列表壁纸数组
+@property (nonatomic,copy) NSArray<IDOSetAppListWallpaperItemModel *>* items;
+
++(IDOSetAppListWallpaperResModel *)currentModel;
+
+@end
+
+
+@interface IDOSetAppListWallpaperModel: IDOBluetoothBaseModel
+
+@property (nonatomic,assign) NSInteger wallpaperVersion;
+
+//操作 1:设置 2:查询 3:删除
+@property (nonatomic,assign) NSInteger operate;
+
+//字体颜色
+@property (nonatomic,copy) NSString *fontColor;
+
+//名字
+@property (nonatomic,copy) NSString *wallpaperName;
+
++(IDOSetAppListWallpaperModel *)currentModel;
+
+@end
+
 #pragma mark ====  设置游戏时间 model ====
 @interface IDOSetGameTimeReminder : IDOBluetoothBaseModel
 //游戏显示开关
@@ -619,6 +773,10 @@
  风速
  */
 @property (nonatomic,assign) NSInteger windSpeed;
+/**
+ 风力
+ */
+@property (nonatomic,assign) NSInteger windForce;
 /**
  日出 时钟
  */
