@@ -30,10 +30,16 @@ NS_ASSUME_NONNULL_BEGIN
 //gps操作代理对象 | gps operation proxy object
 @property (nonatomic,weak)id<IDOGpsManagerDelegate> delegate;
 
+/**
+ 开关打开，每个24小时更新一次GPS EPO 文件 ，默认关闭 | The switch is turned on and the GPS EPO file is updated every 24 hours. The switch is turned off by default
+ */
+@property (nonatomic,assign) BOOL isOpenAutoUpdate;
+
+
 + (IDOGpsManager *)shareInstance;
 
 
-/// 手动更新更新GPS EPO | Update the GPS EP manually
+/// 强制更新GPS EPO | Forced update GPS EPO
 - (void)forceUpdateGpsInfo;
 /**
  * 制作GPS文件

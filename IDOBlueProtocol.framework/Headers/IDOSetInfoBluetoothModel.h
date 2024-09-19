@@ -23,7 +23,7 @@
 /**
  具体显示项内容
  */
-@property (nonatomic,copy) NSString* displayItem;
+@property (nonatomic,assign) NSInteger displayItem;
 
 @end
 
@@ -52,7 +52,7 @@
 
 @end
 
-@interface IDOV3SportRecordShowConfigDefaultItem:IDOBluetoothBaseModel
+@interface IDOV3SportRecordShowConfigDefaultItem: IDOBluetoothBaseModel
 
 /**
  运动记录类型显示项数组
@@ -83,9 +83,25 @@
 @property (nonatomic, assign) NSInteger operate;
 
 /**
- 支持的操作
+ 支持的操作添加
  */
-@property (nonatomic, assign) NSInteger supportOperate;
+@property (nonatomic, assign) NSInteger supportOperateAdd;
+
+/**
+ 支持的操作修改
+ */
+@property (nonatomic, assign) NSInteger supportOperateChange;
+
+/**
+ 支持的操作删除
+ */
+@property (nonatomic, assign) NSInteger supportOperateDelete;
+
+/**
+ 支持的操作查询
+ */
+@property (nonatomic, assign) NSInteger supportOperateInquire;
+
 
 /**
  运动记录显示项内容
@@ -95,7 +111,7 @@
 /**
  默认运动记录显示项内容
  */
-@property (nonatomic,copy) IDOV3SportRecordShowConfigDefaultItem* defaultItems;
+@property (nonatomic,strong) IDOV3SportRecordShowConfigDefaultItem* defaultItems;
 
 +(IDOSetV3SportRecordShowConfigModel *)currentModel;
 
@@ -104,17 +120,30 @@
 #pragma mark ====  设置应用列表壁纸 model ====
 @interface IDOSetAppListWallpaperItemModel: IDOBluetoothBaseModel
 
-//应用列表壁纸序号 从0开始
+/**
+ 应用列表壁纸序号 从0开始
+ */
 @property (nonatomic,assign) NSInteger index;
 
-//当前应用列表壁纸占用空间 单位byte
+/**
+ 当前应用列表壁纸占用空间 单位byte
+ */
 @property (nonatomic,assign) NSInteger size;
 
-//字体颜色
+/**
+ 字体颜色
+ */
 @property (nonatomic,copy) NSString *fontColor;
 
-//名字
+/**
+ 名字
+ */
 @property (nonatomic,copy) NSString *wallpaperName;
+
+/**
+ 壁纸版本号
+ */
+@property (nonatomic,assign) NSInteger wallpaperVersion;
 
 
 @end
