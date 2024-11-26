@@ -150,7 +150,7 @@
 
 @interface IDOSetAppListWallpaperResModel: IDOBluetoothBaseModel
 
-@property (nonatomic,assign) NSInteger wallpaperVersion;
+@property (nonatomic,assign) NSInteger mVersion;
 
 //操作 1:设置 2:查询 3:删除
 @property (nonatomic,assign) NSInteger operate;
@@ -179,6 +179,14 @@
 
 @interface IDOSetAppListWallpaperModel: IDOBluetoothBaseModel
 
+/**
+ 版本号
+ */
+@property (nonatomic,assign) NSInteger mVersion;
+
+/**
+ 壁纸版本号
+ */
 @property (nonatomic,assign) NSInteger wallpaperVersion;
 
 //操作 1:设置 2:查询 3:删除
@@ -956,13 +964,15 @@
  */
 @property (nonatomic,assign) BOOL allOnOff;
 /**
- 通知状态总开关 0:无效 1:全部允许通知 2:全部静默通知 3:全部关闭通知
+ 通知状态总开关 0:无效 1:全部允许通知 2:全部静默通知 3:全部关闭通知  仅增加/修改有效
  */
 @property (nonatomic,assign) NSInteger allNotifyState;
 /**
  通知状态集合 ｜  items
 */
 @property (nonatomic,copy) NSArray <IDOSetAppNotifyStateItemModel *>* items;
+
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -4151,5 +4161,132 @@
  * @return IDOSetCloseDeviceFunctionModel
  */
 + (IDOSetCloseDeviceFunctionModel *)currentModel;
+
+@end
+
+#pragma mark === 关爱提醒 model ===
+@interface IDOSetCareReminderTimeModel: IDOBluetoothBaseModel
+
+/**
+ 年 | year
+ */
+@property (nonatomic, assign) NSInteger year;
+
+/**
+ 月 | Month
+ */
+@property (nonatomic, assign) NSInteger month;
+
+/**
+ 日 | day
+ */
+@property (nonatomic, assign) NSInteger day;
+
+/**
+ 时 | hour
+ */
+@property (nonatomic, assign) NSInteger hour;
+
+/**
+ 分 | minute
+ */
+@property (nonatomic, assign) NSInteger minute;
+
+/**
+ 秒 | seconds
+ */
+@property (nonatomic, assign) NSInteger second;
+
+
+@end
+
+@interface IDOSetCareReminderDesModel: IDOBluetoothBaseModel
+
+/**
+ 关爱提醒次数 | number of care reminders
+ */
+@property (nonatomic, assign) NSInteger careFrequency;
+
+@end
+
+@interface IDOSetCareReminderStateChangeModel: IDOBluetoothBaseModel
+/**
+ 状态类型
+ 无效值 0
+ 郁闷 1
+ 工作中 2
+ 休闲 3
+ 下午茶 4
+ 忙碌 5
+ 假期 6
+ 发呆 7
+ 元气满满 8
+ 勿扰 9
+ 睡眠 10
+ 运动 11
+ */
+
+/**
+ 修改前的状态
+ */
+@property (nonatomic, assign) NSInteger orgState;
+
+/**
+ 修改后的状态
+ */
+@property (nonatomic, assign) NSInteger curState;
+
+@end
+
+
+@interface IDOSetCareReminderItemModel: IDOBluetoothBaseModel
+
+/**
+ 1:关爱提醒 2:状态变化提醒 3:睡眠不足提醒 4:经期开始提醒
+ */
+@property (nonatomic, assign) NSInteger type;
+
+
+/**
+ 名字 | name
+ */
+@property (nonatomic, copy) NSString * name;
+
+/**
+ 提醒时间 | care reminder time
+ */
+@property (nonatomic, strong) IDOSetCareReminderTimeModel* reminderTime;
+
+/**
+ 提醒详情  type为1 需要传| care reminder details
+ */
+@property (nonatomic, strong) IDOSetCareReminderDesModel* careRminder;
+
+/**
+ 状态变化 type为2 需要传
+ */
+@property (nonatomic, strong) IDOSetCareReminderStateChangeModel *stateChangeReminder;
+
+@end
+
+@interface IDOSetCareReminderModel: IDOBluetoothBaseModel
+
+
+/**
+ 1:设置关爱提醒  2:查询关爱提醒 | 1: Set care reminders 2: Query care reminders
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 关爱提醒配置项,仅设置有效 | Care reminder configuration item, only set valid
+ */
+@property (nonatomic, copy) NSArray<IDOSetCareReminderItemModel*>* reminderItems;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetCloseDeviceFunctionModel
+ */
++ (IDOSetCareReminderModel *)currentModel;
 
 @end

@@ -1332,6 +1332,7 @@
 + (void)setMenstrualHistoryDataCommand:(IDOMenstrualHistoryDataModel *_Nullable)historyModel
                               callback:(void (^ _Nullable)(int errorCode))callback;
 
+
 /**
  * @brief //设置未读APP提醒(应用通知红点提醒)
  * @param reminderModel 设置未读APP提醒数据模型
@@ -1444,6 +1445,29 @@
  */
 + (void)setGameTimeCommand:(IDOSetGameTimeReminder *_Nullable)gameTimeModel
                   callback:(void (^_Nullable)(int errorCode))callback;
+
+
+/**
+ * @brief APP 主动发送开始拍照预览指令
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)appSendPhotoPreviewStartCommand:(void (^_Nullable)(int))callback;
+
+/**
+ * @brief APP 主动发送拍照预览暂停指令
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)appSendPhotoPreviewPauseCommand:(void (^_Nullable)(int))callback;
+
+/**
+ * @brief APP 主动发送拍照预览退出指令
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)appSendPhotoPreviewExitCommand:(void (^_Nullable)(int))callback;
+
 
 
 #pragma mark ======= get Command =======
@@ -1917,7 +1941,6 @@
  * callback data (IDOSetV3SportRecordShowConfigModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)getV3SportRecordShowConfigCommad:(void (^ _Nullable)(int errorCode,IDOSetV3SportRecordShowConfigModel* _Nullable model))callback;
-
 
 
 #pragma mark ======= listen Command =======
