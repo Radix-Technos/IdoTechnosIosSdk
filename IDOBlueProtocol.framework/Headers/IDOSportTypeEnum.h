@@ -1016,7 +1016,12 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
     *固件测量完成后，通知APP获取（0606）
      | After the firmware measurement is completed, notify the APP to obtain it
     */
-    IDO_LISTEN_TYPE_FIRMWARE_MEASUREMENT_COMPLETE = 64, 
+    IDO_LISTEN_TYPE_FIRMWARE_MEASUREMENT_COMPLETE = 64,
+    
+    /**
+     戒指发起测量，固件通知APP未佩戴的异常
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_RING_MEASUREMENT_ERROR = 72,
     
     /**
      固件经期历史数据修改，同步APP获取
@@ -1036,6 +1041,59 @@ typedef NS_ENUM(NSInteger,IDO_LISTEN_TYPE) {
      / Firmware quit electric reminder
      */
     IDO_LISTEN_TYPE_FIRMWARE_EXIT_CALL_ALERT= 81,
+    
+    
+    /**
+     固件进入充电状态
+      / Firmware incoming call notification
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_ENTER_CHARGING_STATE = 86,
+    
+    /**
+     固件退出充电状态
+     / Firmware quit electric reminder
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_EXIT_CHARGING_STATE = 87,
+    
+    /**
+     设备修改游戏密码之后通知APP获取游戏密码配置
+     /After the device changes the game password, it informs the APP to obtain the game password configuration
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_GAME_PASSWORD_CHARGING_STATE = 88,
+    
+    /**
+     戒指发起测量，固件通知APP测量失败
+     The ring initiates measurement, firmware notifies the app that measurement failed
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_RING_MEASUREMENT_FAILURE = 89,
+    
+    /**
+     戒指发起测量，固件通知APP测量成功
+     The ring initiates measurement, firmware notifies the app that measurement succeeded
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_RING_MEASUREMENT_SUCCESS = 90,
+    
+    /**
+     固件通知APP蓝牙断连后重连,设备(戒指等无屏设备)在运动中状态。以防app发起运动，杀死app后15秒内打开app重连，设备无法结束运动，需要app接收到通知停止设备运动。
+     Firmware notifies app to stop sport after Bluetooth reconnection (for screenless devices like rings in motion status).
+      * Prevents cases where app kills sport process, then reconnects within 15s but device can't end sport mode.
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_RING_NOTICE_APP_STOP_SPORT = 91,
+    
+    /**
+     手表和手机协议栈ble配对成功，手表通知APP
+     Watch notifies app when BLE pairing between watch and phone succeeds
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_TOTICE_APP_PAIRING_SUCCESS = 92,
+    
+    /**
+     请保持佩戴10分钟以上再测量
+     Please keep wearing for over 10 minutes before measuring
+     */
+    IDO_LISTEN_TYPE_FIRMWARE_RING_MEASUREMENT_SUCCES = 93,
+
+
+
 };
 
 //自定义数据类型 | Custom data type

@@ -596,6 +596,130 @@ max step stride
  */
 @property (nonatomic,assign) NSInteger smartCompetitorPace;
 
+/**
+ 最小步幅
+ */
+@property (nonatomic,assign) NSInteger minStepStride;
+
+/**
+ 恢复心率个数
+ */
+@property (nonatomic,assign) NSInteger recoveryHrCount;
+
+/**
+ 恢复心率数组 恢复心率2分钟，1s一个值，最多120个
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * recoveryHrItems;
+
+/**
+ 桨次个数 根据运动类型判断有效 预留字段
+ */
+@property (nonatomic,assign) NSInteger paddleNumberCount;
+
+/**
+ 桨频个数 预留字段
+ */
+@property (nonatomic,assign) NSInteger paddleFrequencyCount;    
+
+/**
+ 总桨次
+ */
+@property (nonatomic,assign) NSInteger totalPaddleNumber;
+
+/**
+ 最快桨频
+ */
+@property (nonatomic,assign) NSInteger maxPaddleFrequency;
+
+/**
+ 最慢桨频
+ */
+@property (nonatomic,assign) NSInteger minPaddleFrequency;
+
+/**
+ 平均桨频
+ */
+@property (nonatomic,assign) NSInteger avgPaddleFrequency;
+
+/**
+ 运动结束的UTC时间
+ */
+@property (nonatomic,assign) NSInteger utcEndTime;
+
+/**
+ 恢复心率起始时间点
+ */
+@property (nonatomic,assign) NSInteger recoveryHrStartTime;
+
+/**
+ 保存实时配速个数模式 0x01:1秒保存一个 0x05:5秒保存一个
+ */
+@property (nonatomic,assign) NSInteger realPaceSaveInterval;
+
+/**
+ V60 版本恢复心率
+ */
+@property (nonatomic, copy) NSArray<NSDictionary*>* recoveryHrItemsV60;
+
+/**
+ V60 版本间歇训练
+ NSArray<NSDictionary*>* intervalItemsV60 = @[
+     @{
+         @"stage_type": @(1),//当前训练步骤类型
+         @"repeat_num": @(0),//当前重复次数
+         @"stage_data_num": @(0), //当前阶段数据项个数,最大10个
+         @"stage_data_type_0x60":
+             @[
+                 @{
+                     @"stage_support_type": @(0),//当前训练步骤的训练数据类型
+                     @"stage_data_value": @(0)//时间值单位s，距离单位m, 卡路里单位大卡, 配速单位s/km， 速度单位km/h乘以100倍
+                 }
+             ]//当前训练步骤的训练数据
+     }
+ ];
+ 训练步骤类型    索引值
+ 无(无效)    0x00
+ 热身    0x01
+ 训练    0x02
+ 休息    0x03
+ 放松    0x04
+ 
+ 训练步骤支持的数据类型    索引值
+ 无(无效)    0x00
+ 持续时间    0x01
+ 平均心率    0x02
+ 距离    0x03
+ 卡路里    0x04
+ 平均配速    0x05
+ 平均速度    0x06
+ */
+@property (nonatomic, copy) NSArray<NSDictionary*>* intervalItemsV60;
+
+/**
+ V60版本 间歇训练详情个数,当前阶段item最大个数110
+ */
+@property (nonatomic,assign) NSInteger interval_train_item_count;
+
+/**
+ V60版本后的实时配速个数使用这个字段
+ */
+@property (nonatomic,assign) NSInteger pace_count_new;
+
+/**
+ V60版本 圈距
+ */
+@property (nonatomic,assign) NSInteger circleDistance;
+
+/**
+ V60版本 最小步频
+ */
+@property (nonatomic,assign) NSInteger minStepFrequency;
+
+/**
+ V60版本 最慢公里配速 s/km
+ */
+@property (nonatomic,assign) NSInteger slowestKmPace;
+
 @end
 
 @interface IDOSyncV3ActivityDataModel : NSObject

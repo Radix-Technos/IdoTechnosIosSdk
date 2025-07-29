@@ -145,6 +145,14 @@
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncGps)(void(^ _Nullable gpsDataCallback)(NSString * _Nullable jsonStr));
 
+
+/**
+ * 同步 轨迹返航gps数据回调
+ * Synchronize GPS data callbacks
+ * 回调的json数据转化成model | Convert the callback json data into model
+ * IDOSyncV3GpsDataInfoBluetoothModel*gpsmodel = [IDOSyncV3GpsDataModel v3GpsDataJsonStringToObjectModel:jsonStr];
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncRoundtripGps)(void(^ _Nullable roundtripGpsDataCallback)(NSString * _Nullable jsonStr));
 /**
  * 同步游泳数据回调
  * Synchronize swim data callback
@@ -215,6 +223,14 @@
  * 回调的json数据转化成model | Convert the callback json data into model
  */
 @property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncDrinkPlan)(void(^ _Nullable drinkCallback)(NSString * _Nullable jsonStr));
+
+/**
+ * 同步情绪数据回调
+ * 功能表 | function Table : __IDO_FUNCTABLE__.funcTable42Model.supportSyncEmotionHealth
+ * 回调的json数据转化成model | Convert the callback json data into model
+ */
+@property (nonatomic,copy,nullable) IDOSyncManager *_Nonnull(^addSyncEmotion)(void(^ _Nullable emotionCallback)(NSString * _Nullable jsonStr));
+
 
 /**
  * 同步统一进度回调

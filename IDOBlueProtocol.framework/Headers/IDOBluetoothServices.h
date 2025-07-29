@@ -80,6 +80,28 @@ extern NSString * _Nonnull IDOBluetoothDeviceBTStateNotifyName;
 //object -》IDOControlDataUpdateModel
 extern NSString * _Nonnull IDOBluetoothControlDataUpdateNotifyName;
 
+// 文件传输状态通知
+extern NSString * _Nonnull IDOBluetoothFileTransferStateNotifyName;
+
+// 单次拍照
+extern NSString * _Nonnull IDOBluetootPhotoSingleShotNotifyName;
+
+// 打开APP相机，进入拍照预览功能
+extern NSString * _Nonnull IDOBluetootPhotoIntoPreviewNotifyName;
+
+//暂停拍照预览，停止传输照片流
+extern NSString * _Nonnull IDOBluetootPhotoStopPreviewNotifyName;
+
+//关闭APP相机，退出拍照预览功能
+extern NSString * _Nonnull IDOBluetootPhotoOutPreviewNotifyName;
+
+//通知APP 删除设备
+extern NSString * _Nonnull IDOBluetoothDeleteDeviceNotifyName;
+//提示APP 重复绑定
+extern NSString * _Nonnull IDOBluetoothRepeatBindingNotifyName;
+
+//特征值有0AF8 设备未配对 开始蓝牙配对
+extern NSString * _Nonnull IDOBluetoothStartPairNotifyName;
 
 @interface IDOBluetoothServices : NSObject
 

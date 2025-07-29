@@ -167,6 +167,15 @@
  */
 @property (nonatomic,copy) NSArray<IDOMenstrualHistoryVersion3GradeModel*> *grade;
 
+/**
+ 经期是否结束  0:无效 1:结束 2:未结束
+ */
+@property (nonatomic,assign) NSUInteger isMenstrualEnd;
+
+/**
+ 修改项   0:无效 1:新增 2:修改 3:删除
+ */
+@property (nonatomic,assign) NSUInteger  changeType;
 
 @end
 
@@ -196,7 +205,7 @@
 @interface IDOMenstrualHistoryDataVesion3Model : IDOBluetoothBaseModel
 
 /**
-  操作 0：无效；1：设置 2：查询 (3：修改 4：增加 5：删 每次操作一条记录)    
+  操作 0：无效；1：设置 2：查询 (3：修改 4：增加 5：删 每次操作一条记录) 6：获取修改项
  */
 @property (nonatomic,assign) NSInteger operat;
 
