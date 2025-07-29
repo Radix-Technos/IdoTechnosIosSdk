@@ -33,6 +33,15 @@
 @property (nonatomic,assign) IDO_DATA_FILE_TRAN_STATE_TYPE tranStateType;
 
 /**
+ * 传输文件中
+ * initTransferManager().tranStateType == IDO_DATA_FILE_TRAN_START_TYPE ||
+ * initTransferManager().tranStateType == IDO_DATA_FILE_TRAN_ING_TYPE ||
+ * initTransferManager().tranStateType == IDO_DATA_FILE_CONNECT_PARAMETER_TYPE
+ * Transfer file process status
+ */
+@property (nonatomic,readonly,assign) BOOL isTranferIng;
+
+/**
  * 设置传输文件包文个数 默认 10
  * Set the number of transfer file packet default 10
  */

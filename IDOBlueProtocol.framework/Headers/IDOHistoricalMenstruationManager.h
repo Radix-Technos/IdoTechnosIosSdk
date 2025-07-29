@@ -29,12 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
                               callback:(void (^ _Nullable)(int errorCode))callback;
 
 /**
+ *  2：查询  6：获取修改项( 需要功能表支持才能传6 __IDO_FUNCTABLE__.funcTable42Model.supportHistoricalMenstruationExchangeVersion31）
  * @brief 查询经期历史Vesion3  |Get Menstrual History Vesion3 Data
  *  * 功能表 | Function Table :  __IDO_FUNCTABLE__.funcTable42Model.supportHistoricalMenstruationExchange
  * @param callback 执行后回调 data (IDOMenstrualHistoryDataVesion3Model) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOMenstrualHistoryDataVesion3Model) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
-- (void)getMenstrualHistoryVesion3DataCommand:(void (^ _Nullable)(int errorCode,IDOMenstrualHistoryDataVesion3Model *_Nullable model))callback;
+- (void)getMenstrualHistoryVesion3DataCommand:(NSInteger)operate callback:(void (^ _Nullable)(int errorCode,IDOMenstrualHistoryDataVesion3Model *_Nullable model))callback;
 
 
 /// 设置V3经期配置项 | set V3 Menstruation Config

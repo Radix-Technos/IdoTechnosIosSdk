@@ -28,6 +28,11 @@
  */
 @property (nonatomic,copy) NSString * longitudeStr;
 
+/**
+ 时间偏移 | time offset
+ */
+@property (nonatomic,assign) NSInteger offset;
+
 @end
 
 
@@ -95,6 +100,25 @@
  * converted into model collections. You need to query itemModel to assign current attributes.
  */
 @property (nonatomic,copy) NSArray <IDOSyncV3GpsDataItemInfoBluetoothModel *>* gpsItems;
+
+/**
+ gps 类型
+ */
+@property (nonatomic,copy) NSString *type;
+
+/**
+ 去程gps 个数
+ */
+@property (nonatomic,assign) NSInteger toDestGpsItemsNum;
+
+/**
+ 返程gps 个数
+ */
+@property (nonatomic,assign) NSInteger backDestGpsItemsNum;
+
+@property (nonatomic,copy) NSArray <IDOSyncV3GpsDataItemInfoBluetoothModel *>* toDestGpsItems;
+
+@property (nonatomic,copy) NSArray <IDOSyncV3GpsDataItemInfoBluetoothModel *>* backDestGpsItems;
 
 @end
 

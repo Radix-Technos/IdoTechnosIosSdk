@@ -38,6 +38,8 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOSyncV3SleepDataModel.h>
 #import <IDOBlueProtocol/IDOSyncV3GpsDataModel.h>
 #import <IDOBlueProtocol/IDOSyncV3SportDataModel.h>
+#import <IDOBlueProtocol/IDOSyncV3RoundtripGpsDataModel.h>
+
 #import <IDOBlueProtocol/IDOSyncNoiseDataModel.h>
 #import <IDOBlueProtocol/IDOSyncTemperatureDataModel.h>
 #import <IDOBlueProtocol/IDOSyncV3BpDataModel.h>
@@ -58,6 +60,8 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOBlueDataResponse.h>
 
 #import <IDOBlueProtocol/IDOFoundationCommand.h>
+#import <IDOBlueProtocol/IDOFoundationCommand+GestureControl.h>
+
 #import <IDOBlueProtocol/IDODataMigrationManager.h>
 #import <IDOBlueProtocol/IDOTransferFileManager.h>
 #import <IDOBlueProtocol/IDOWatchDialManager.h>
@@ -90,4 +94,6 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IODAlipayAuthManager.h>
 #import <IDOBlueProtocol/IDOV3MenuListManager.h>
 #import <IDOBlueProtocol/IDOPhotoDialManager.h>
+#import <IDOBlueProtocol/IDOWriteDataCommand.h>
+#import <IDOBlueProtocol/IDOSmartRingManager.h>
 

@@ -10,6 +10,19 @@
 #else
 #import "IDOBluetoothBaseModel.h"
 #endif
+#pragma mark ==== 获取固件留给联系人文件存储上限 ====
+@interface IDOGetContactMaxSizeModel:IDOBluetoothBaseModel
+
+@property (nonatomic,assign) NSInteger supportMaxSize; //固件留给联系人文件存储上限
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetAppPackNameStateModel
+ */
++ (IDOGetContactMaxSizeModel *)currentModel;
+
+@end
 
 #pragma mark ==== 获取消息通知包名信息的状态 ====
 @interface IDOGetAppPackNameStateModel:IDOBluetoothBaseModel
@@ -996,6 +1009,183 @@ error flag
 @property (nonatomic, assign) BOOL supportProtocolV3MenuList;
 
 /**
+ 支持步幅长度的单位（公里/英里）设置
+ */
+@property (nonatomic, assign) BOOL supportStrideLengthUnit;
+
+/**
+ 支持跨设备数据同步设置
+ */
+@property (nonatomic, assign) BOOL supportSetStrideDeviceSync;
+
+/**
+ 支持习惯养成设置
+ */
+@property (nonatomic, assign) BOOL supportOperateHabitFormation;
+
+/**
+ 支持获取其他检测开关 天气开关
+ */
+@property (nonatomic, assign) BOOL supportGetOtherSwitchState;
+
+/**
+ 支持设置家庭步数
+ */
+@property (nonatomic, assign) BOOL supportOperateFamilySteps;
+
+
+/**
+ 支持设置app基本信息
+ */
+@property (nonatomic, assign) BOOL supportGetAppBaseInformation;
+
+/**
+ 支持游戏设置
+ */
+@property (nonatomic, assign) BOOL supportOperateSetGame;
+
+/**
+ 根据这个功能表判断app是否显示闹钟名称 废弃
+ */
+@property (nonatomic, assign) BOOL supportAppDisplayAlarmName;
+
+/**
+ app支持发起运动:跑步,走路,骑行。发起运动时,设备不进入运动
+ */
+@property (nonatomic, assign) BOOL supportDeviceNotEnterMotion;
+
+/**
+ 支持设置全天目标步数的UTC时间（废弃）
+ */
+@property (nonatomic, assign) BOOL  supportSetStepTime;
+
+/**
+ 支持获取全天目标步数的UTC时间 (废弃）
+ */
+@property (nonatomic, assign) BOOL  supportGetStepTime;
+
+/**
+ 控制app是否显示相机入口
+ */
+@property (nonatomic, assign) BOOL supportDisplayCameraEntry;
+
+/**
+ 支持运动屏幕显示设置
+ */
+@property (nonatomic, assign) BOOL supportOperateSetSportScreen;
+
+/**
+ V3闹钟编辑页面设置重复次数：默认不重复，增加功能表区分默认状态
+ */
+@property (nonatomic, assign) BOOL v3AlarmSetRepetitionTimeDefaultOff;
+
+/**
+ 消息提醒开关：默认关闭，增加功能表区分默认状态
+ */
+@property (nonatomic, assign) BOOL v3MsgNotifySwitchDefaultOff;
+
+/**
+ 来电提醒开关：默认关闭，增加功能表区分默认状态
+ */
+@property (nonatomic, assign) BOOL callRemindSwitchDefaultOff;
+
+/**
+ 功能表开,控制APP不推送拍照预览图给固件
+ */
+@property (nonatomic, assign) BOOL notSupportPhotoPreviewControl;
+
+/**
+ 骑行和户外骑行运动记录显示项特殊处理
+ */
+@property (nonatomic, assign) BOOL cycleSportRecordShowSpecialHandle;
+
+/**
+ 支持手势控制功能
+ */
+@property (nonatomic, assign) BOOL supportOperateGestureControl;
+
+/**
+ 支持设备返回测量过程值 （已废弃）
+ */
+@property (nonatomic, assign) BOOL supportDevReturnMeasuringValue;
+
+/**
+ 开启功能表则关闭智能心率过高提醒
+ */
+@property (nonatomic, assign) BOOL  notSupportSmartHighHeartReatRemind;
+
+/**
+ 开启功能表则关闭智能心率提醒
+ */
+@property (nonatomic, assign) BOOL  notSupportSmartLowHeartReatRemind;
+
+/**
+ 支持游戏模式功能
+ */
+@property (nonatomic, assign) BOOL supportGameModeFunc;
+
+/**
+ 支持根据性别显示女性健康数据
+ */
+@property (nonatomic, assign) BOOL supportShowWomenHealthByGender;
+
+/**
+ 联系人存储支持使用固件返回大小
+ */
+@property (nonatomic, assign) BOOL supportContactFileUseFirmwareReturnSize;
+
+/**
+ 新加支持APP发起的运动，暂停后需要继续获取运动中数据的功能表
+ */
+@property (nonatomic, assign) BOOL supportGetContinuedSportData;
+
+/**
+ 支持情绪健康
+ */
+@property (nonatomic, assign) BOOL supportEmotionHealth;
+
+/**
+ 支持情绪健康数据的同步
+ */
+@property (nonatomic, assign) BOOL supportSyncEmotionHealth;
+
+/**
+ 支持活动卡路里
+ */
+@property (nonatomic, assign) BOOL supportGetActivityCalories;
+
+/**
+ 功能表开启后，经期历史数据下发使用
+ */
+@property (nonatomic, assign) BOOL supportSetHistoricalMenstruationUseVersion21;
+
+/**
+ 支持女性生理日常记录
+ */
+@property (nonatomic, assign) BOOL supportPhysiologicalRecord;
+
+/**
+ 支持获取用户信息功能
+ */
+@property (nonatomic, assign) BOOL supportGetUserInfo;
+
+/**
+ 经期历史数据支持交互,版本31使用
+ */
+@property (nonatomic, assign) BOOL supportHistoricalMenstruationExchangeVersion31;
+
+
+/**
+ 开启该功能表，支持KS_OS针对未接来电消息类型值改为固定值485，否则KS_OS使用592
+ */
+@property (nonatomic, assign) BOOL supportMissedCallMsgTypeUseFixedValue;
+
+/**
+ 根据这个功能表判断app是否显示闹钟名称，开启app不显示闹钟名称
+ */
+@property (nonatomic, assign) BOOL supportAppNotDisplayAlarmName;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetFuncTable37BluetoothModel
@@ -1505,6 +1695,7 @@ error flag
  固件支持解绑不清除设备上的数据
  */
 @property (nonatomic,assign) BOOL newRetainData;
+
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -4539,7 +4730,7 @@ error flag
 /**
  * 手环的平台 | platform for bracelet
  * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,
- * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;90:炬心; 99:思澈; 98:思澈(芯语物)
+ * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;96:杰理;90:炬心; 99:思澈; 98:思澈(芯语物)
  */
 @property (nonatomic,assign) NSInteger platform;
 
@@ -4710,6 +4901,16 @@ error flag
 @property (nonatomic,assign) NSInteger bleGetMaxPrn;
 
 /**
+ 闹钟延时分钟 默认10分钟
+ */
+@property (nonatomic,assign) NSInteger alarmDelayMin;
+
+/**
+ 闹钟重复闹铃次数，默认3次
+ */
+@property (nonatomic,assign) NSInteger alarmRepeatTimes;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOGetSettingMaxItemsNumBluetoothModel
@@ -4783,6 +4984,12 @@ error flag
  Full week target steps
  */
 @property (nonatomic,assign) NSInteger stepWeekGoal;
+
+/**
+ 获取全天目标步数的UTC时间 无效值：0xFFFF 
+ */
+@property (nonatomic,assign) NSInteger getStepTime;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object

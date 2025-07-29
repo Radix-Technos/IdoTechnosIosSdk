@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/IDOBasicBlueDataModel.h</key>
 		<data>
-		G7YXHHdHs+YmREGQPseFvjHdvGQ=
+		K/mbr/ztHgVRNfwfQ0KeS2q3PFk=
 		</data>
 		<key>Headers/IDOBindEnum.h</key>
 		<data>
@@ -26,23 +26,23 @@
 		</data>
 		<key>Headers/IDOBlueDataResponse.h</key>
 		<data>
-		ouZ5rofSuId7a21BFIJ8WEdsuFo=
+		6uRYc4K6jurzYf4tFVqremQHoKY=
 		</data>
 		<key>Headers/IDOBlueProtocol.h</key>
 		<data>
-		vyBUzJmEfrdBkUoBMb+ew7i5x90=
+		iibAhSm2WUCj+UIdshAOxL39Asw=
 		</data>
 		<key>Headers/IDOBluetoothBaseModel.h</key>
 		<data>
-		0zZ0Mh1YMefZUb0zp3Kac0qkz6o=
+		GtzwD1dd+szJx8a+9oj9Jkx3gDM=
 		</data>
 		<key>Headers/IDOBluetoothEngine.h</key>
 		<data>
-		X327HVdTuIGp0tQPMZe1fYVrMbc=
+		3bpT+5ywOs4uu0hTRr/Wi9OwQ5M=
 		</data>
 		<key>Headers/IDOBluetoothServices.h</key>
 		<data>
-		McvZF1O+vbrLOd+IyKAxAjXB8pU=
+		zOTPD9E6nmeer3drJMQVKC5GimI=
 		</data>
 		<key>Headers/IDOCalculateBluetoothModel.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Headers/IDODataExchangeModel.h</key>
 		<data>
-		V3D2x2uQ5pQkiIV1Y5X/9k/YNV4=
+		3S9YnvCNyzNUGamizJCbVa2iGpA=
 		</data>
 		<key>Headers/IDODataMigrationManager.h</key>
 		<data>
@@ -72,13 +72,17 @@
 		<data>
 		hdZljPpAGo8Qx2FWBi1qhjb/zZw=
 		</data>
+		<key>Headers/IDOFoundationCommand+GestureControl.h</key>
+		<data>
+		DdfbURV/D/SNIJIANkSVIDTLudk=
+		</data>
 		<key>Headers/IDOFoundationCommand.h</key>
 		<data>
-		n50ax8I0YlWRz87sd6uN/+aTVJI=
+		l5+43xHzq5zdGwSqBa0+mXhMZ1w=
 		</data>
 		<key>Headers/IDOGetInfoBluetoothModel.h</key>
 		<data>
-		vYS10VrsfErmncI/TzCnMo6z8Ok=
+		Ot20EMRwNAUsfuHCMBeQvrPYnAA=
 		</data>
 		<key>Headers/IDOGpsManager.h</key>
 		<data>
@@ -90,11 +94,11 @@
 		</data>
 		<key>Headers/IDOHistoricalMenstruationManager.h</key>
 		<data>
-		g2i7pK8PEW7f3nyxQqPaF1QMCC4=
+		55NIH6ixWodZfMVsiAUDByqhtY4=
 		</data>
 		<key>Headers/IDOLogEnum.h</key>
 		<data>
-		fh7/iyhJhEkZfN5QECw42hcyLeE=
+		VXVglPg8FqaGHv1Dg5LzAuV8ZQ0=
 		</data>
 		<key>Headers/IDOMakePhotoManager.h</key>
 		<data>
@@ -114,7 +118,7 @@
 		</data>
 		<key>Headers/IDONewDataExchangeModel.h</key>
 		<data>
-		NB/t2U+lLBdvV7EO0DpkTbeO+yo=
+		JoUeE8NDOclQCRmiIL4mjxKXskU=
 		</data>
 		<key>Headers/IDOPeripheralsInfoModel.h</key>
 		<data>
@@ -134,11 +138,11 @@
 		</data>
 		<key>Headers/IDOScManager.h</key>
 		<data>
-		x8WHwu6zNcaxUkJWIoMzPaXowBU=
+		2W20sN5Jw9Zx7Yp5rX0vQNDP2TQ=
 		</data>
 		<key>Headers/IDOSetInfoBluetoothModel.h</key>
 		<data>
-		lTLpqUSJACO4p0bQs9H2g5lFchk=
+		aF9oIduBzy6kvDllV42nNcuj9yc=
 		</data>
 		<key>Headers/IDOSleepPlanDataModel.h</key>
 		<data>
@@ -147,6 +151,10 @@
 		<key>Headers/IDOSleepPlanManager.h</key>
 		<data>
 		DtHSvsMLZFgw7fwzEnap9/6Spt4=
+		</data>
+		<key>Headers/IDOSmartRingManager.h</key>
+		<data>
+		cznm118MabrfGSnNXEJfbB2WK54=
 		</data>
 		<key>Headers/IDOSportIconManager.h</key>
 		<data>
@@ -166,7 +174,7 @@
 		</data>
 		<key>Headers/IDOSportTypeEnum.h</key>
 		<data>
-		pKZOOzjFU82kFD4YTa4PhHK8LXk=
+		V8ELKbWrhAR6HfjJogzkjEGw9Yw=
 		</data>
 		<key>Headers/IDOStatisticsManager.h</key>
 		<data>
@@ -210,7 +218,7 @@
 		</data>
 		<key>Headers/IDOSyncManager.h</key>
 		<data>
-		1SymE9I1jRmJ3Rix/2dyoOtqu3E=
+		OM1x7YzHnfdzp0uqvg53RlTPHqg=
 		</data>
 		<key>Headers/IDOSyncNoiseDataModel.h</key>
 		<data>
@@ -242,7 +250,7 @@
 		</data>
 		<key>Headers/IDOSyncV3ActivityDataModel.h</key>
 		<data>
-		WieIfE7qxg89VqGDAw1Ehr4CGv8=
+		TrDMlttuQ7Eyhh9PjXFrhMwpE2g=
 		</data>
 		<key>Headers/IDOSyncV3BpDataModel.h</key>
 		<data>
@@ -250,7 +258,11 @@
 		</data>
 		<key>Headers/IDOSyncV3GpsDataModel.h</key>
 		<data>
-		SkPYVdninqZqmZyQwizcUKoe38E=
+		yNxUYUKIV+RHEYtQsoL758x4PNg=
+		</data>
+		<key>Headers/IDOSyncV3RoundtripGpsDataModel.h</key>
+		<data>
+		7ckBMmIlAFXC+CYoEVOoDlVQzXc=
 		</data>
 		<key>Headers/IDOSyncV3SleepDataModel.h</key>
 		<data>
@@ -266,15 +278,15 @@
 		</data>
 		<key>Headers/IDOTransferFileManager.h</key>
 		<data>
-		4IAD+uKyFP1hUJmTh8Jr5fGIMfQ=
+		gtVJDa3B+qOc4t36vFCaB6HWHMg=
 		</data>
 		<key>Headers/IDOV2DataExchangeModel.h</key>
 		<data>
-		IB6ibUc9vuioWnoJEZ0F2u/Uqqw=
+		PXqmiH/Dg6in1anltaf4MmpaPpg=
 		</data>
 		<key>Headers/IDOV3DataExchangeModel.h</key>
 		<data>
-		+N4cxNrw8OIHpWpnReBApI+w3jI=
+		M0AB4fty5qTS8xQQooTADh1pU3M=
 		</data>
 		<key>Headers/IDOV3MenuListManager.h</key>
 		<data>
@@ -304,6 +316,10 @@
 		<data>
 		oPLzuzYAwfTPOw2xDxvQOGz2jTc=
 		</data>
+		<key>Headers/IDOWriteDataCommand.h</key>
+		<data>
+		LLuPj/OeXZXt70vpWtL4/8Gm/aE=
+		</data>
 		<key>Headers/IODAlipayAuthManager.h</key>
 		<data>
 		2DpAGSYi2TBX1jTPSFUBm5k8TaA=
@@ -314,7 +330,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		juLmf8vdbkTyoZCiLZFucQDjpec=
+		7TuHDWp+1QVRQTrIhaiuO4eQLVU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -348,7 +364,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NUl+5DYcLGjFcWQ0IpoHivOkS6+j5zOTqHodGsRqgdo=
+			WfcrK2t3UI1YVMWSXem8dMnOCdtoCM4TSQUBBDTunWw=
 			</data>
 		</dict>
 		<key>Headers/IDOBindEnum.h</key>
@@ -362,35 +378,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FNsrkKxumeQxFvcJLm32qCBMA895iKREO2Qvaxzyxi4=
+			YY4qMKlMqnT8tvCaMaHk2oy5tW9EVXPDRtq0TbIxITA=
 			</data>
 		</dict>
 		<key>Headers/IDOBlueProtocol.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			06C18FgkmGRObTny4cxTO3qS000BGIx7p2b4E+trZSo=
+			ZWxNjjQsgFOXRy08JDpsD9oOLLELigPpw65VkmIC8Xw=
 			</data>
 		</dict>
 		<key>Headers/IDOBluetoothBaseModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FHEiNFLOrG38UbLh2VDFj1tgjsJPmc3twPEVSpuXRA4=
+			amqAoAyB/TgDrntFiWx+iGAEQZ/74nHN+r8lHSVixns=
 			</data>
 		</dict>
 		<key>Headers/IDOBluetoothEngine.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8YqGmYNuT/dU0Lb0vExGkNcEh55q5K+o07X6CCm3I+E=
+			P3CQ99qNDA/Al7UEmvy8cEuHecmC6oVDs+KzOzR2fqA=
 			</data>
 		</dict>
 		<key>Headers/IDOBluetoothServices.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f5auVe7/19usBrsLnaJcqPsMpTHdVXx+K2xMP1Vw194=
+			87VqcQ4YTqAJWcwxp6A4fSXDgIYkxrVR43od6XGsaLE=
 			</data>
 		</dict>
 		<key>Headers/IDOCalculateBluetoothModel.h</key>
@@ -425,7 +441,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0Eu61A7LDQFWJ5mafQNF1r35FcVs+PKlNwxEkH4biFk=
+			V7ix+LbwS0l0YihXk/vRLxAisVlwLFNsMtP0/6aeJL4=
 			</data>
 		</dict>
 		<key>Headers/IDODataMigrationManager.h</key>
@@ -442,18 +458,25 @@
 			Roj2DkAaYSo6cC2tyEqMRfOWyPIzrosqMmwOG9YBx60=
 			</data>
 		</dict>
+		<key>Headers/IDOFoundationCommand+GestureControl.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IugCdgc2QC/ae3cXfUm3Nu2Y+bEzRQBFdl0eZokHQ98=
+			</data>
+		</dict>
 		<key>Headers/IDOFoundationCommand.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jBrRDGcrYu2K2wGYCbszYBg8PP9JLnyDOrDykKM24GE=
+			GCeHyOONkf9E3WRt1QeVnDm5MfCdT+/HjY5Ho7tYq4M=
 			</data>
 		</dict>
 		<key>Headers/IDOGetInfoBluetoothModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6PUkluMubCHdJlblHxrVOqR3kPQHHDKxHa3GG47Rv7c=
+			3zMwoZakNBItMeJBA0Y33fOfAMUzk53xEWvM1pvV1LY=
 			</data>
 		</dict>
 		<key>Headers/IDOGpsManager.h</key>
@@ -474,14 +497,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			n0knoSCA3mn9g4X9L8DSWCn18BGPjnPnlJ2TC2yVLBs=
+			obcMA/Hyc0op1uYim43lkpTStRF2bmODHt9basU+a5Q=
 			</data>
 		</dict>
 		<key>Headers/IDOLogEnum.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			klbww7Cp8Kr35tlsPNW9UX8Jaffper9PvbIaaZ6u6Tk=
+			Kq11Wa/iv5IdPqKl6GhB5ixJ0UGuMtzfpIHUpx87dm8=
 			</data>
 		</dict>
 		<key>Headers/IDOMakePhotoManager.h</key>
@@ -516,7 +539,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mdVSjoCIwlbEmViLTBZjZ8IY+04I8Q3DVfW7d88YX8U=
+			AJKLRCSMgsJhFcG/i7MJIpQWMgwilhzYwKskj3fPLLU=
 			</data>
 		</dict>
 		<key>Headers/IDOPeripheralsInfoModel.h</key>
@@ -551,14 +574,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RH7VcJjs4ocF+KtsqKqulK9IerKCrWm5N+5tiQad1II=
+			FtrWB6ZmHbEX3jQ8W1LR+ax6F8vOrDCYsJFE6ywa354=
 			</data>
 		</dict>
 		<key>Headers/IDOSetInfoBluetoothModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eKHEPcqs4EHdQwOj85KerF9VJ7Tk8qw4xeYocDPnb14=
+			7j3ZQ6QF8ldCaJI82h9O5s+UlxhMBevKs6KMTTrbjQs=
 			</data>
 		</dict>
 		<key>Headers/IDOSleepPlanDataModel.h</key>
@@ -573,6 +596,13 @@
 			<key>hash2</key>
 			<data>
 			EweETmA8fzrLIh2R6JGihScIwebk0dNXhrMcPy/wqdg=
+			</data>
+		</dict>
+		<key>Headers/IDOSmartRingManager.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Js0Qo26HNhRFBQs2OmIV0XauSDdvrtZY1evq3OJS9dg=
 			</data>
 		</dict>
 		<key>Headers/IDOSportIconManager.h</key>
@@ -607,7 +637,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			M9SlkVOr73lCr6fQSzB0GBAbZyehGZ15zGaO5llrUpA=
+			9tQMinPAHUlHKFYOFwZbCz38xuBZn/7R0gFsYNN1vBQ=
 			</data>
 		</dict>
 		<key>Headers/IDOStatisticsManager.h</key>
@@ -684,7 +714,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VgZEfnVlTTxoH9pTKETq8F8xCsRZ8ceYsyA7X5ArRUI=
+			4W/19ZElxIFw9GmHhgLBjBwmnxGeAvw5nMMS3brFrCA=
 			</data>
 		</dict>
 		<key>Headers/IDOSyncNoiseDataModel.h</key>
@@ -740,7 +770,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4QATCvIWN4Wi9GQ6vvZkdRr4WA4jA6dqmWTk3hDtPvQ=
+			CAHIPUg8Jd+UHUJAOKargWgE+lZS6T+KKRswoSRMX4g=
 			</data>
 		</dict>
 		<key>Headers/IDOSyncV3BpDataModel.h</key>
@@ -754,7 +784,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nsKk0Q/6L/Dt1jluSdKfHX3PmlDxwQv8ulkX2lSMsYI=
+			8iWrbiZxb6IMn5QDLQXjscBr5URvQhr5XK1RrBK43eE=
+			</data>
+		</dict>
+		<key>Headers/IDOSyncV3RoundtripGpsDataModel.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			J57rZWII5K7IXhkxRSTzf+ivikqWAjuvzHCX2fMl9xE=
 			</data>
 		</dict>
 		<key>Headers/IDOSyncV3SleepDataModel.h</key>
@@ -782,21 +819,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x2zYI4ahpuOV4apVhcJ3jLOU+IiF1SDrhN1ePYZians=
+			H4qwmcGq8ZPDgXovZ6C6mN33lN4lseg5Tf/inBcYuao=
 			</data>
 		</dict>
 		<key>Headers/IDOV2DataExchangeModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eJib3SN9CxIwR7TgjdpJbU3DdMT/OWdsLwiP69U9RpQ=
+			nQhtwfzaT9CGYKFlMDbqBzAPpys9EvNYP/NyQKHhtxc=
 			</data>
 		</dict>
 		<key>Headers/IDOV3DataExchangeModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			E5UVobyurd1qiqOsqe+rgu6M78Mt3eUap7JKeiJqN8I=
+			aU2pPEgqtMymWq5AZwy++TD3XCrOOUoH2AKag1XlvvI=
 			</data>
 		</dict>
 		<key>Headers/IDOV3MenuListManager.h</key>
@@ -846,6 +883,13 @@
 			<key>hash2</key>
 			<data>
 			voxYRysV73HDsqgGMQCdPLZs09ILr22mzBiaw/+gUJY=
+			</data>
+		</dict>
+		<key>Headers/IDOWriteDataCommand.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			m1gWvFn0kLriiwdyIyqSJLH9fAUVBmm7ttDy5+/a9yM=
 			</data>
 		</dict>
 		<key>Headers/IODAlipayAuthManager.h</key>

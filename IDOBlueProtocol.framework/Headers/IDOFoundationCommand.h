@@ -962,9 +962,42 @@
 
 /// 设置应用列表壁纸  Setting the app list wallpapers
 /// @param callback app list wallpapers model (IDOSetApplicationListWallpaperModel)
-/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
 + (void)setAppListWallpaperCommand:(IDOSetAppListWallpaperModel * _Nullable)wallpaperModel
                                   callback:(void (^ _Nullable)(int errorCode))callback;
+
+/**
+ * @brief 设置皮肤温度测量参数 | set temperature measurement parameters
+ * @param measureInfoModel 皮肤温度测量参数 model (IDOSetTemperatureMeasureInfoModel)
+ * measureInfoModel parameters model (IDOSetTemperatureMeasureInfoModel)
+ * @param callback 设置回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str ; model实时血压数据和状态)
+ * Set callback (errorCode: 0 transmission succeeded, other values are wrong, error code str can be obtained according to IDOErrorCodeToStr;
+ * model real-time blood pressure data and status)
+ */
++ (void)setTemperatureMeasureCommand:(IDOSetTemperatureMeasureInfoModel * _Nullable)measureInfoModel
+                   callback:(void (^ _Nullable)(int errorCode,IDOSetTemperatureMeasureInfoModel * _Nullable model))callback;
+
+/**
+ * @brief 设置一键测量参数 | Set the One Key measurement parameters
+ * @param measureInfoModel 一键测量参数 model (IDOSetOneClickMeasureInfoModel)
+ * measureInfoModel parameters model (IDOSetOneClickMeasureInfoModel)
+ * @param callback 设置回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str ; model实时血压数据和状态)
+ * Set callback (errorCode: 0 transmission succeeded, other values are wrong, error code str can be obtained according to IDOErrorCodeToStr;
+ * model real-time blood pressure data and status)
+ */
++ (void)setOneClickMeasureCommand:(IDOSetOneClickMeasureInfoModel * _Nullable)measureInfoModel
+                   callback:(void (^ _Nullable)(int errorCode,IDOSetOneClickMeasureInfoModel * _Nullable model))callback;
+
+/**
+ * @brief 设置压力测量参数 | Set the pressure measurement parameters
+ * @param stressMeasureInfoModel 压力测量参数 model (IDOSetStressMeasureInfoModel)
+ * pressure measurement parameters model (IDOSetStressMeasureInfoModel)
+ * @param callback 设置回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str ; model实时血压数据和状态)
+ * Set callback (errorCode: 0 transmission succeeded, other values are wrong, error code str can be obtained according to IDOErrorCodeToStr;
+ * model real-time blood pressure data and status)
+ */
++ (void)setStressMeasureCommand:(IDOSetStressMeasureInfoModel * _Nullable)stressMeasureInfoModel
+                   callback:(void (^ _Nullable)(int errorCode,IDOSetStressMeasureInfoModel * _Nullable model))callback;
 
 
 /**
@@ -1446,6 +1479,15 @@
 + (void)setGameTimeCommand:(IDOSetGameTimeReminder *_Nullable)gameTimeModel
                   callback:(void (^_Nullable)(int errorCode))callback;
 
+/**
+ * @brief 设置游戏时间开关和密码
+ * 功能表 __IDO_FUNCTABLE__.funcTable42Model.supportOperateSetGame
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)setGameInfoCommand:(IDOV3SetGameModel *_Nullable)gameModel
+                  callback:(void (^_Nullable)(int errorCode))callback;
+
 
 /**
  * @brief APP 主动发送开始拍照预览指令
@@ -1468,6 +1510,57 @@
  */
 + (void)appSendPhotoPreviewExitCommand:(void (^_Nullable)(int))callback;
 
+
+/// 跨设备数据同步步数
+/// @param model IDOSetStrideDeviceInformationModel
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)setStrideDeviceInformationCommand:(IDOSetStrideDeviceInformationModel *_Nullable)model
+                                 callback:(void (^_Nullable)(int errorCode))callback;
+
+
+/// 习惯养成设置
+/// @param model IDOSetV3HabitFormationModel
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)setHabitFormationCommand:(IDOSetV3HabitFormationModel *_Nullable)model
+                        callback:(void (^_Nullable)(int errorCode))callback;
+
+
+/// 家庭步数设置
+/// @param model IDOV3SetFamilyStepModel
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)setFamilyStepCommand:(IDOV3SetFamilyStepModel *_Nullable)model
+                        callback:(void (^_Nullable)(int errorCode))callback;
+
+/// app 基本信息设置
+/// @param model IDOV3SetAppBaseInformationModel
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)setAppBaseInformationCommand:(IDOV3SetAppBaseInformationModel *_Nullable)model
+                        callback:(void (^_Nullable)(int errorCode))callback;
+
+
+
+/// 设置小程序
+/// @param model IDOV3SetMiniProgramInfoModel
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)setMiniProgramInfoCommand:(IDOV3SetMiniProgramInfoModel *_Nullable)model
+                        callback:(void (^_Nullable)(int errorCode))callback;
+
+/// 设置情绪信息
+/// @param model IDOV3SetEmotionInfo2Model
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)setEmotionInformationCommand:(IDOV3SetEmotionInfo2Model *_Nullable)model callback:(void (^_Nullable)(int errorCode))callback;
+
+/// 设置女性生理日常记录
+/// @param model IDOV3PhysiologicalRecordModel
+/// @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+/// Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
++ (void)setPhysiologicalRecordCommand:(IDOV3PhysiologicalRecordModel *_Nullable)model callback:(void (^_Nullable)(int errorCode))callback;
 
 
 #pragma mark ======= get Command =======
@@ -1776,11 +1869,19 @@
 + (void)getWalkReminderCommand:(void (^_Nullable)(int errorCode, IDOSetWalkReminderBluetoothModel * _Nullable data))callback;
 
 /**
+ * @brief 获取天气开关
+ * @param callback 执行后回调 data (IDOWeatherSwitchStateModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOWeatherSwitchStateModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getWeaherSwitchStateCommand:(void (^_Nullable)(int errorCode, IDOWeatherSwitchStateModel * _Nullable data))callback;
+
+/**
  * @brief 获取运动模式识别开关
  * @param callback 执行后回调 data (IDOSetActivitySwitchBluetoothModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
  * callback data (IDOSetActivitySwitchBluetoothModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
  */
 + (void)getActivitySwitchCommand:(void (^_Nullable)(int errorCode, IDOSetActivitySwitchBluetoothModel * _Nullable data))callback;
+
 
 /**
  * @brief 获取100种运动模式排序
@@ -1942,6 +2043,67 @@
  */
 + (void)getV3SportRecordShowConfigCommad:(void (^ _Nullable)(int errorCode,IDOSetV3SportRecordShowConfigModel* _Nullable model))callback;
 
+/**
+ * @brief 获取习惯提醒设置
+ ** 功能表 | Function Table :  __IDO_FUNCTABLE__.funcTable42Model.supportOperateHabitFormation
+ * @param callback 执行后回调 data (IDOSetV3HabitFormationModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOSetV3HabitFormationModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getV3HabitFormationCommand:(void (^ _Nullable)(int errorCode,IDOSetV3HabitFormationModel* _Nullable model))callback;
+
+/**
+ * @brief 获取游戏设置
+ ** 功能表 | Function Table :  __IDO_FUNCTABLE__.funcTable42Model.supportOperateSetGame
+ * @param callback 执行后回调 data (IDOV3SetGameModel) (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * callback data (IDOV3SetGameModel) (errorCode : 0 The transfer was successful, the other values are errors, and the error code str can be obtained according to IDOErrorCodeToStr)
+ */
++ (void)getGameSettingInfoCommand:(void (^ _Nullable)(int errorCode,IDOV3SetGameModel  * _Nullable model))callback;
+
+/**
+ * @brief 获取压力开关数据 | get Pressure Switch Info
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getPressureSwitchInfoCommand:(void (^_Nullable)(int errorCode, IDOSetPressureSwitchBluetoothModel * _Nullable model))callback;
+
+
+/**
+ * @brief 获取血氧开关数据 | get Pressure Switch Info
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getSpo2SwitchInfoCommand:(void (^_Nullable)(int errorCode, IDOSetSpo2SwitchBluetoothModel * _Nullable model))callback;
+
+
+/**
+ * @brief 获取血氧开关数据 | get Pressure Switch Info
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getSmartHeartRateSwitchInfoCommand:(void (^_Nullable)(int errorCode, IDOSetSmartHeartRateModel * _Nullable model))callback;
+
+
+/**
+ * @brief 获取小程序| get mini program info
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getMiniProgramInfoCommand:(void (^ _Nullable)(int errorCode,IDOV3SetMiniProgramInfoModel  * _Nullable model))callback;
+
+/**
+ * @brief 获取情绪信息| get emotion info
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getEmotionInformationCommandcallback:(void (^_Nullable)(int errorCode, IDOV3SetEmotionInfo2Model * _Nullable model))callback;
+
+
+/**
+ * @brief 获取生理周期记录 | get physiological record
+ * @param callback 设置后回调 (errorCode : 0 传输成功,其他值为错误,可以根据 IDOErrorCodeToStr 获取错误码str)
+ * Set post callback (errorCode : 0 transfer succeeds, other values are wrong, you can get error code str according to IDOErrorCodeToStr)
+ */
++ (void)getPhysiologicalRecordCommand:(IDOV3PhysiologicalRecordModel *_Nullable)model callback:(void (^_Nullable)(int errorCode,IDOV3PhysiologicalRecordModel * _Nullable model))callback;
 
 #pragma mark ======= listen Command =======
 
@@ -2399,4 +2561,7 @@
  */
 + (void)getEndV3ActivityDataCommand:(IDODataExchangeModel *_Nullable)model
                            callback:(void (^_Nullable)(IDODataExchangeModel * _Nullable model,int errorCode))callback DEPRECATED_MSG_ATTRIBUTE("Method deprecated, use \"IDODataExchangeManager\"");
+
+
+
 @end

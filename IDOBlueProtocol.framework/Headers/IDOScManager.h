@@ -19,6 +19,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (int)getMakeSiFliWatchDialWithFilePath:(NSString *)filePath;
 
+
+ /**
+* @brief 获取思澈表盘(.watch)文件占用空间大小，计算规则：
+* nor方案：对表盘所有文件以4096向上取整  -  98平台对应的项目，IDW27,205G Pro,IDW28,IDS05，DR03等
+* nand方案：对表盘所有文件以2048向上取整 -  99平台对应的项目，GTX12,GTX13,GTR1,TIT21
+* @param filePath .watch文件路径，包含文件名
+* @param platform 平台类型，目前有98(nor)，99(nand)平台
+* @return size 文件占用磁盘的实际大小，-1:失败，文件路径访问失败，-2:失败，申请内存失败，-3:失败，读取文件失败，-4:失败，输入平台类型不支持
+*/
++ (NSUInteger)getSifliWatchDialSizeWithPath:(NSString *)filePath platform:(int)platform;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

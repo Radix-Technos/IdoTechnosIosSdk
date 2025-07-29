@@ -111,6 +111,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
     IDO_SYNC_HEALTH_DRINK_PLAN_LOG,
     
     /**
+     * 同步情绪
+     */
+    IDO_SYNC_HEALTH_EMOTION_LOG,
+    
+    /**
      * 同步健康 血压
      * Synchronized Health Blood Pressure
      */
@@ -140,6 +145,11 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
      * Synchronous gps
      */
     IDO_SYNC_GPS_LOG,
+    /**
+     * 同步 roundtrip gps
+     * Synchronous gps
+     */
+    IDO_SYNC_ROUNDTRIP_GPS_LOG,
     /**
      * 同步结束
      * End of synchronization

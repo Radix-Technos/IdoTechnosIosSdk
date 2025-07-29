@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IDOAppStartReplyExchangeModel : IDONewDataExchangeModel
 
 /**
- * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电4:正在使用Alexa 5:通话中
+ * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电4:正在使用Alexa 5:通话中 6:设备处于锁屏状态
  * 0:success 1:into sport mode failed 2:Low power of equipment 3: the bracelet is charging 4:Using Alexa 5:In the call
  */
 @property (nonatomic,assign) NSInteger retCode;
@@ -328,7 +328,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark ==== ble 发起运动app状态回复 ====
 @interface IDOBleStartReplyExchangeModel : IDONewDataExchangeModel
 /**
- * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电4:正在使用Alexa 5:通话中
+ * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电4:正在使用Alexa 5:通话中 6:设备处于锁屏状态
  * 0:success 1:into sport mode failed 2:Low power of equipment 3: the bracelet is charging 4:Using Alexa 5:In the call
  */
 @property (nonatomic,assign) NSInteger retCode;
@@ -567,7 +567,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) NSInteger year;
 /**
-月份
+ 月份
  */
 @property (nonatomic,assign) NSInteger month;
 /**
@@ -581,7 +581,7 @@ NS_ASSUME_NONNULL_BEGIN
  0x03：跑步计划10km ，0x04：半程马拉松训练（二期） ，0x05：马拉松训练（二期）
  */
 @property (nonatomic,assign) NSInteger planType;
- /**
+/**
  心率间隔 | heart rate interval
  */
 @property (nonatomic,assign) NSInteger intervalSecond;
@@ -634,20 +634,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) NSInteger warmUpValue;
 /**
-脂肪燃烧运动值
-*/
+ 脂肪燃烧运动值
+ */
 @property (nonatomic,assign) NSInteger burnFatValue;
 /**
-有氧运动值
-*/
+ 有氧运动值
+ */
 @property (nonatomic,assign) NSInteger aerobicValue;
 /**
-极限运动值
-*/
+ 极限运动值
+ */
 @property (nonatomic,assign) NSInteger limitValue;
 /**
-无氧运动值
-*/
+ 无氧运动值
+ */
 @property (nonatomic,assign) NSInteger anaerobicValue;
 /**
  平均速度 km/h
@@ -921,8 +921,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSMutableArray<NSDictionary *> * ropeItems;
 
 /**
-  0:无效 1:非智能陪跑运动 2:智能陪跑运动
-  0: Invalid 1: Non intelligent running sports 2: Intelligent running sports
+ 0:无效 1:非智能陪跑运动 2:智能陪跑运动
+ 0: Invalid 1: Non intelligent running sports 2: Intelligent running sports
  */
 @property (nonatomic,assign) NSInteger smartCompetitor;
 
@@ -949,6 +949,25 @@ NS_ASSUME_NONNULL_BEGIN
  Intelligent companion running at opponent's pace
  */
 @property (nonatomic,assign) NSInteger smartCompetitorPace;
+
+/**
+ 最小步幅 单位厘米
+ Minimum stride in centimeters
+ */
+@property (nonatomic,assign) NSInteger minStepStride;
+
+/**
+ 最小步频 步/分钟
+ Minimum step rate/min
+ */
+@property (nonatomic,assign) NSInteger minStepFrequency;
+
+/**
+ 最慢公里配速 s/km
+ The slowest km speed is s/km
+ */
+@property (nonatomic,assign) NSInteger slowestKmPace;
+
 
 @end
 

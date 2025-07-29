@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) NSInteger forceStart;
 /**
- * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电4:正在使用Alexa 5:通话中
+ * 0:成功; 1:设备已经进入运动模式失败;2: 设备电量低失败;3:手环正在充电4:正在使用Alexa 5:通话中 6:设备处于锁屏状态
  * 0:success 1:into sport mode failed 2:Low power of equipment 3: the bracelet is charging 4:Using Alexa 5:In the call
  */
 @property (nonatomic,assign) NSInteger retCode;

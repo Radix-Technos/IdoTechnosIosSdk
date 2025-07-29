@@ -65,6 +65,8 @@ NS_ASSUME_NONNULL_BEGIN
 //兼容快速配置的超时问题
 +(void)compatibleFastSyncConfigComplete;
 
+- (void)didReciveDataCommand:(void (^_Nullable)(NSData * data))callback;
+
 @end
 
 NS_ASSUME_NONNULL_END

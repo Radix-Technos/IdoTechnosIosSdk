@@ -11,6 +11,734 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+
+#pragma mark ==== 情绪健康新数据新模型 ====
+@interface IDOV3EmotionPressureReminderConfigModel: IDOBluetoothBaseModel
+
+/**
+ 压力过高提醒开关 0xAA:开 0x55:关 0x00:无效
+
+ */
+@property (nonatomic, assign) NSInteger pressureSwitch;
+
+/**
+ 提醒开始时间(时)
+ */
+@property (nonatomic, assign) NSInteger startHour;
+
+/**
+ 提醒开始时间(分)
+ */
+@property (nonatomic, assign) NSInteger  startMinute;
+
+/**
+ 提醒结束时间(时)
+ */
+@property (nonatomic, assign) NSInteger  endHour;
+
+/**
+ 提醒结束时间(分)
+ */
+@property (nonatomic, assign) NSInteger  endMinute;
+
+/**
+ 重复周期 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ */
+@property (nonatomic, copy) NSArray<NSNumber*>* repeat;
+
+/**
+ 提醒间隔,单位(分)
+ */
+@property (nonatomic, assign) NSInteger  reminderInterval;
+
+@end
+
+
+@interface IDOV3EmotionUnpleasantReminderConfigModel : IDOBluetoothBaseModel
+
+/**
+ 不愉悦提醒开关 0xAA:开 0x55:关 0x00:无效
+ */
+@property (nonatomic, assign) NSInteger  unpleasantSwitch;
+
+/**
+ 不愉悦提醒阈值，0无效
+ */
+@property (nonatomic, assign) NSInteger  unhappyReminderNum;
+
+
+@end
+
+@interface IDOV3SetEmotionInfo2Model: IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger eVersion;
+
+/**
+ 操作类型 0:无效 1:设置 2:查询
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 通知类型：0:无效 1:允许通知；2:静默通知；3:关闭通知
+ */
+@property (nonatomic, assign) NSInteger notifyType;
+
+/**
+ 情绪健康总开关 0xAA:开 0x55:关 0x00:无效
+ */
+@property (nonatomic, assign) NSInteger emotionalHealthSwitch;
+
+/**
+ 压力过高提醒配置
+ */
+@property (nonatomic, strong) IDOV3EmotionPressureReminderConfigModel* pressureRemind;
+
+/**
+ 不愉悦提醒配置
+ */
+@property (nonatomic, strong) IDOV3EmotionUnpleasantReminderConfigModel* unpleasantRemind;
+
++ (IDOV3SetEmotionInfo2Model *)currentModel;
+
+@end
+
+
+
+#pragma mark ==== 情绪健康新数据模型 此模型废弃，协议修改了 ====
+@interface IDOV3EmotionPressureReminderItemModel: IDOBluetoothBaseModel
+
+/**
+ 提醒开始时间(时)
+ */
+@property (nonatomic, assign) NSInteger startHour;
+
+/**
+ 提醒开始时间(分)
+ */
+@property (nonatomic, assign) NSInteger startMinute;
+
+/**
+ 提醒结束时间(时)
+ */
+@property (nonatomic, assign) NSInteger endHour;
+
+/**
+ 提醒结束时间(分)
+ */
+@property (nonatomic, assign) NSInteger endMinute;
+
+
+/**
+ 重复周期 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ */
+@property (nonatomic, copy) NSArray<NSNumber*>* repeat;
+
+/**
+ 提醒间隔,单位(分)
+ */
+@property (nonatomic, assign) NSInteger reminderInterval;
+
+
+@end
+
+
+@interface IDOV3SetEmotionInfoModel: IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger eVersion;
+
+/**
+ 操作类型 0:无效 1:设置 2:查询
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 通知类型：0:无效 1:允许通知；2:静默通知；3:关闭通知
+ */
+@property (nonatomic, assign) NSInteger notifyType;
+
+/**
+ 情绪健康总开关 0xAA:开 0x55:关 0x00:无效
+ */
+@property (nonatomic, assign) NSInteger emotionalHealthSwitch;
+
+/**
+ 不愉悦提醒开关 0xAA:开 0x55:关 0x00:无效
+ */
+@property (nonatomic, assign) NSInteger unpleasantSwitch;
+
+
+/**
+ 压力过高提醒开关 0xAA:开 0x55:关 0x00:无效
+ */
+@property (nonatomic, assign) NSInteger pressureSwitch;
+
+/**
+ 压力过高提醒项，设置有效
+ */
+@property (nonatomic, strong) IDOV3EmotionPressureReminderItemModel * pressureItems;
+
+/**
+ 不愉悦提醒阈值，查询有效
+ */
+@property (nonatomic, assign) NSInteger  unhappyReminderNum;
+
++(IDOV3SetEmotionInfoModel *)currentModel;
+
+
+@end
+
+#pragma mark ==== 女性生理周期日常记录 ====
+@interface IDOV3PhysiologicalRecordConfModel: IDOBluetoothBaseModel
+
+/**
+ 0x01:症状 0x02:点滴出血 0x03:性生活 0x04:心情 0x05:日记
+ */
+@property (nonatomic, assign) NSInteger dataType;
+
+/**
+ 支持的数据子项集合：每个bit位代表一个子选项类型,具体参考下表
+ */
+@property (nonatomic, copy) NSArray<NSNumber *>* dataItems;
+
+@end
+
+@interface IDOV3PhysiologicalRecordDataModel: IDOBluetoothBaseModel
+
+/**
+ 0x01:症状 0x02:点滴出血 0x03:性生活 0x04:心情 0x05:日记
+ */
+@property (nonatomic, assign) NSInteger dataType;
+
+/**
+ 数据项长度
+ */
+@property (nonatomic, assign) NSInteger itemsLen;
+
+
+/**
+ 数据项类型
+ 无    0x00
+ 0x01  症状
+ 0：眩晕
+ 1：呕吐
+ 2：失眠
+ 3：头痛
+ 4：痤疮
+ 5：掉发
+ 6：恶心
+ 7：记忆力衰退
+ 8：腹部绞痛
+ 9：腹泻
+10：腹胀
+11：盆腔疼痛
+12：发冷
+13：浮肿
+14：皮肤干燥
+15：食欲变化
+16：乳房疼痛
+17：腰酸背痛
+18：心情变化
+19：夜间盗汗
+20：膀胱失禁
+21：便秘
+22：潮热
+比如 @[@(0),@(1),@(2),@(3),@(4),@(5),@(22)]
+0x02 点滴出血
+0:点滴出血
+比如 @[@(0)]
+ */
+@property (nonatomic, copy) NSArray<NSNumber *>* dataItems;
+
+/**
+dataType 0x05：日记 使用此字段
+ */
+@property (nonatomic, copy) NSString* diaryDataItems;
+
+@end
+
+@interface IDOV3PhysiologicalRecordItemModel: IDOBluetoothBaseModel
+
+/**
+ 年
+ */
+@property (nonatomic, assign) NSInteger year;
+
+/**
+ 月
+ */
+@property (nonatomic, assign) NSInteger month;
+
+/**
+ 日
+ */
+@property (nonatomic, assign) NSInteger day;
+
+
+@property (nonatomic, assign) NSInteger itemsCount;
+ 
+/**
+ 数据项
+ */
+@property (nonatomic, copy) NSArray<IDOV3PhysiologicalRecordDataModel*> *items;
+
+/**
+ 最后一次修改的时间，操作修改&增加&删除都得更新时间
+ */
+@property (nonatomic, assign) NSInteger lastChangeTime;
+
+/**
+ 修改项   0:无效 1:新增 2:修改 3:删除
+ */
+@property (nonatomic, assign) NSInteger changeType;
+
+@end
+
+@interface IDOV3PhysiologicalRecordModel: IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger pVersion;
+
+/**
+ 操作类型 0:无效 1:全量设置 2:查询生理日常记录项 3:查询生理日常记录数据 4:修改  5:新增 6:删除 7:获取固件修改项
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 最后一次修改的时间，操作修改&增加&删除都得更新时间
+ */
+@property (nonatomic, assign) NSInteger lastChangeTime;
+
+/**
+ 总的items的个数,操作1:全量设置,4:修改,5:新增,6:删除时有效
+ */
+@property (nonatomic, assign) NSInteger allItemsNum;
+
+
+/**
+ 已经发送/接收的items的个数,操作1:全量设置,4:修改,5:新增,6:删除时有效
+ */
+@property (nonatomic, assign) NSInteger finishItemsNum;
+
+
+/**
+ 当前包items的个数,操作1:全量设置,4:修改,5:新增,6:删除时有效
+ */
+@property (nonatomic, assign) NSInteger curItemsNum;
+
+/**
+ 生理日常记录数据,对应curItemsNum字段数据
+ */
+@property (nonatomic, copy) NSArray<IDOV3PhysiologicalRecordItemModel*>  *dataItems;
+
+/**
+ 生理日常记录项个数,操作2:查询生理日常记录项时有效
+ */
+@property (nonatomic, assign) NSInteger configureItemsNum;
+
+/**
+ 生理日常记录项,对应configureItemsNum字段数据 操作2:查询生理日常记录项时有效
+ */
+@property (nonatomic, copy) NSArray<IDOV3PhysiologicalRecordConfModel *>* configureItems;
+
++(IDOV3PhysiologicalRecordModel *)currentModel;
+
+@end
+
+#pragma mark ==== 情绪健康 model 废弃 ====
+@interface IDOV3EmotionReminderFormationItemModel: IDOBluetoothBaseModel
+
+/**
+ 提醒类型 0:无效 1:不愉悦提醒 2:压力过高提醒
+ */
+@property (nonatomic, assign) NSInteger type;
+
+/**
+ 通知类型：0:无效 1:允许通知；2:静默通知；3:关闭通知
+ */
+@property (nonatomic, assign) NSInteger notifyType;
+
+/**
+ 提醒开始时间(时)
+ */
+@property (nonatomic, assign) NSInteger startHour;
+
+/**
+ 提醒开始时间(分)
+ */
+@property (nonatomic, assign) NSInteger startMinute;
+
+/**
+ 提醒结束时间(时)
+ */
+@property (nonatomic, assign) NSInteger endHour;
+
+/**
+ 提醒结束时间(分)
+ */
+@property (nonatomic, assign) NSInteger endMinute;
+
+/**
+ 重复周期总开关
+ */
+@property (nonatomic, assign) BOOL isOpen;
+
+/**
+ 重复周期 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ */
+@property (nonatomic, copy) NSArray<NSNumber*>* repeat;
+
+/**
+ 提醒间隔,单位(分)
+ */
+@property (nonatomic, assign) NSInteger reminderInterval;
+
+
+@end
+
+@interface IDOV3SetEmotionInfomationModel: IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger eVersion;
+
+/**
+ 操作类型 0:无效 1:设置 2:查询
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 情绪健康总开关 YES:开 NO:关
+ */
+@property (nonatomic, assign) BOOL onOff;
+
+/**
+ 提醒项个数，最大30个，设置有效
+ */
+@property (nonatomic, assign) NSInteger itemsNum;
+
+/**
+ 提醒项，设置有效
+ */
+@property (nonatomic, copy) NSArray<IDOV3EmotionReminderFormationItemModel *>* items;
+
+/**
+ 通知类型：0:无效 1:允许通知；2:静默通知；3:关闭通知
+ */
+@property (nonatomic, assign) NSInteger notifyType;
+
++(IDOV3SetEmotionInfomationModel *)currentModel;
+
+
+@end
+
+
+#pragma mark ==== 小程序设置 model ====
+
+@interface IDOV3SetMiniProgramInfoItemModel : IDOBluetoothBaseModel
+
+/**
+ 小程序版本号
+ */
+@property (nonatomic, assign) NSInteger miniProgramVersion;
+
+/**
+ 小程序版本大小
+ */
+@property (nonatomic, assign) NSInteger miniProgramSize;
+
+/**
+ 小程序名称 最大默认30个字节，包含一个结束符
+ */
+@property (nonatomic, copy) NSString*  miniProgramName;
+
+/**
+ 小程序1级版本号 (int)((miniProgramVersion >> 24) & 0xFF)
+ */
+@property (nonatomic, assign) NSInteger miniProgramVersion1;
+
+/**
+ 小程序2级版本号 (int)((miniProgramVersion >> 16) & 0xFF)
+ */
+@property (nonatomic, assign) NSInteger miniProgramVersion2;
+
+/**
+ 小程序3级版本号 (int)((miniProgramVersion >> 8) & 0xFF)
+ */
+@property (nonatomic, assign) NSInteger miniProgramVersion3;
+
+/**
+ 小程序4级版本号 (int)(miniProgramVersion & 0xFF)
+ */
+@property (nonatomic, assign) NSInteger miniProgramVersion4;
+
+@end
+
+@interface IDOV3SetMiniProgramInfoModel : IDOBluetoothBaseModel
+
+/**
+ 协议版本号
+ */
+@property (nonatomic, assign) NSInteger pVersion;
+
+/**
+ 0:无效 1:启动小程序 2:删除小程序 3:获取已安装的小程序列表
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 名称 设置有效
+ */
+@property (nonatomic, copy) NSString* miniProgramName;
+
+
+/**
+ 小程序应用列表 获取有效
+ */
+@property (nonatomic, copy) NSArray<IDOV3SetMiniProgramInfoItemModel *>* items;
+
+/**
+ 小程序个数 最多50个 获取有效
+ */
+@property (nonatomic, assign) NSInteger miniProgramNum;
+
+/**
+ 总空间 获取有效
+ */
+@property (nonatomic, assign) NSInteger totalSpace;
+
+/**
+ 剩余空间 获取有效
+ */
+@property (nonatomic, assign) NSInteger residualSpace;
+
+/**
+ 支持获取小程序的最大个数，默认是20个 获取有效
+ */
+@property (nonatomic, assign) NSInteger supportGetMiniProgramMaxNum;
+
+/**
+ 支持的小程序名称最大长度，默认是30个字节，包含一个结束符 获取有效
+ */
+@property (nonatomic, assign) NSInteger supportMiniProgramNameMaxLen;
+
++(IDOV3SetMiniProgramInfoModel *)currentModel;
+
+
+@end
+
+
+#pragma mark ==== 设置皮肤温度测量指令model ====
+@interface IDOSetTemperatureMeasureInfoModel:IDOBluetoothBaseModel
+
+/**
+ * 参数标志 0x01:开始测量皮肤温度， 0x02:结束测量皮肤温度，0x03:获得皮肤温度数据
+ * Parameter flags 0x01: start of pressure measurement, 0x02: end of pressure measurement, 0x03: Get pressure data
+ */
+@property (nonatomic,assign) NSInteger flag;
+
+/**
+ * 测量返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
+ */
+@property (nonatomic,assign) NSInteger status;
+
+/**
+ 测量返回皮肤温度数据值 体温实际值*10 比如37.5*10 | Temperature value
+ */
+@property (nonatomic,assign) NSInteger temperatureValue;
+
+/**
+ 测量返回皮肤温度数据实际值 体温实际值，保留一位小数 比如 37.5 | Temperature value
+ */
+@property (nonatomic,copy) NSString* temperatureFloatValue;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBpMeasureInfoBluetoothModel
+ */
++ (IDOSetTemperatureMeasureInfoModel *)currentModel;
+
+@end
+
+#pragma mark ==== 设置一键测量指令model ====
+@interface IDOSetOneClickMeasureInfoModel:IDOBluetoothBaseModel
+
+/**
+ * 参数标志 0x01:一键测量开始测量，0x02:一键测量结束测量，0x03:获得一键测量数据
+ * The parameter flags 0x01: one-click measurement starts the measurement, 0x02: one-click measurement ends the measurement, 0x03: one-click measurement data obtained
+ */
+@property (nonatomic,assign) NSInteger flag;
+
+/**
+ * 测量返回状态码 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
+ */
+@property (nonatomic,assign) NSInteger status;
+
+/**
+ 测量返回数据值  心率 | Heart rate value
+ */
+@property (nonatomic,assign) NSInteger hrValue;
+
+/**
+ 测量返回数据值  压力 | Stress value
+ */
+@property (nonatomic,assign) NSInteger stressValue;
+
+/**
+ 测量返回数据值  血氧 | Spo2 value
+ */
+@property (nonatomic,assign) NSInteger spo2Value;
+
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBpMeasureInfoBluetoothModel
+ */
++ (IDOSetOneClickMeasureInfoModel *)currentModel;
+
+@end
+
+
+#pragma mark ==== 设置压力测量指令model ====
+@interface IDOSetStressMeasureInfoModel:IDOBluetoothBaseModel
+
+/**
+ * 参数标志 0x01:开始测量压力， 0x02:结束测量压力，0x03:获得压力数据
+ * Parameter flags 0x01: start of pressure measurement, 0x02: end of pressure measurement, 0x03: Get pressure data
+ */
+@property (nonatomic,assign) NSInteger flag;
+
+/**
+ * 测量返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
+ */
+@property (nonatomic,assign) NSInteger status;
+
+/**
+ 测量返回数据值  | Heart rate value
+ */
+@property (nonatomic,assign) NSInteger value;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetBpMeasureInfoBluetoothModel
+ */
++ (IDOSetStressMeasureInfoModel *)currentModel;
+
+@end
+
+#pragma mark ====  游戏设置 model ====
+@interface IDOV3SetGameTimeModel: IDOBluetoothBaseModel
+
+/**
+ 索引
+ */
+@property (nonatomic, assign) NSInteger index;
+
+/**
+ 开始时
+ */
+@property (nonatomic, assign) NSInteger startHour;
+
+/**
+ 开始分
+ */
+@property (nonatomic, assign) NSInteger startMinute;
+
+/**
+ 结束时
+ */
+@property (nonatomic, assign) NSInteger endHour;
+
+/**
+ 结束分
+ */
+@property (nonatomic, assign) NSInteger endMinute;
+
+@end
+
+@interface IDOV3SetGameModel: IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger gameSetVersion;
+
+/**
+ 操作类型 0:无效 1:设置 2:获取
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 总开关
+ */
+@property (nonatomic, assign) BOOL onOff;
+
+
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * repeat;
+
+/**
+ 状态 0:无效 1:允许 2:禁止
+ */
+@property (nonatomic, assign) NSInteger status;
+
+
+/**
+ 修改信息的UTC时间
+ */
+@property (nonatomic,assign) NSInteger changeTime;
+
+/**
+ 游戏显示开关 0无效(不展示) 0x55关  0xAA开  
+ */
+@property (nonatomic,assign) NSInteger gameShow;
+
+/**
+ 定时禁止开关 0无效(不展示) 0x55关 0xAA开
+ */
+@property (nonatomic,assign) NSInteger timeBan;
+
+/**
+ 用户密码(1-6位) 最长10位
+ */
+@property (nonatomic,copy) NSString* userPassword;
+
+/**
+ 时间段个数，最大10个,设置有效
+ */
+@property (nonatomic,assign) NSUInteger timeNum;
+
+/**
+ 时间段
+ */
+@property (nonatomic,copy) NSArray<IDOV3SetGameTimeModel *> * items;
+
+/**
+ 设备支持设置时间段的最大值,获取有效
+ */
+@property (nonatomic,assign) NSInteger timeNumMax;
+
++(IDOV3SetGameModel *)currentModel;
+
+@end
+
 #pragma mark ====  设置V3运动记录显示配置 model ====
 
 @interface IDOV3SportRecordItem:NSObject
@@ -352,6 +1080,37 @@
 智能心率过低提醒阈值
 */
 @property (nonatomic,assign) NSInteger lowHeartValue;
+
+/**
+ 智能心率测量时间间隔
+ */
+@property (nonatomic,assign) NSInteger measurementInterval;
+
+/**
+ 心率监测时间段 开始时 获取有效
+ */
+@property (nonatomic,assign) NSInteger startHour;
+
+/**
+ 心率监测时间段 开始分 获取有效
+ */
+@property (nonatomic,assign) NSInteger startMinute;
+
+/**
+ 心率监测时间段 结束时 获取有效
+ */
+@property (nonatomic,assign) NSInteger endHour;
+
+/**
+ 心率监测时间段 结束分 获取有效 
+ */
+@property (nonatomic,assign) NSInteger endMinute;
+
+/**
+ 智能心率默认支持测量频率数组 单位s @[@600,@1200,@1800]
+ */
+@property (nonatomic,copy) NSArray *supportMFArray;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -1109,7 +1868,7 @@
  */
 @property (nonatomic,assign) NSInteger operate;
 /**
- * items的个数
+ * items的个数 设置 1:增, 2:删,4:改 num传1，3:查 num传0
  */
 @property (nonatomic,assign) NSInteger num;
 /**
@@ -1425,6 +2184,16 @@
 @property (nonatomic,assign) NSInteger stressThreshold;
 
 /**
+ 压力测量间隔 单位分钟 IDR01项目增加app设置测量间隔
+ */
+@property (nonatomic,assign) NSInteger measurementInterval;
+
+/**
+ 压力默认支持的测量频率数组 单位分钟 @[@10,@20,@30]
+ */
+@property (nonatomic,copy) NSArray *supportMFArray;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetPressureSwitchBluetoothModel
@@ -1687,6 +2456,17 @@
  */
 @property (nonatomic,assign) NSInteger notifyFlag;
 
+/**
+  测量间隔,单位分钟 IDR01项目增加app设置测量间隔
+
+ */
+@property (nonatomic,assign) NSInteger measurementInterval;
+
+/**
+ 测量频率数组,单位分钟 IDR01项目增加app 获取默认测量频率数组 @[@30,@60,@120]
+
+ */
+@property (nonatomic,copy) NSArray* supportMFArray;
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -2005,7 +2785,7 @@
 @property (nonatomic,assign) NSInteger flag;
 
 /**
- * 返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * 返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式 0x05:测量中(戒指才有）
  * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
  */
 @property (nonatomic,assign) NSInteger status;
@@ -2034,7 +2814,7 @@
 @property (nonatomic,assign) NSInteger flag;
 
 /**
- * 返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式
+ * 返回状态 0x00:不支持，0x01:正在测量，0x02:测量成功 0x03:测量失败 0x04:设备正在运动模式 0x05:测量中(戒指才有）
  * Return status 0x00: Not supported, 0x01: Positive measurement, 0x02: Measurement success 0x03: Measurement failure 0x04: Device is in motion mode
  */
 @property (nonatomic,assign) NSInteger status;
@@ -2973,6 +3753,11 @@
  * 步行或者跑步的单位(公里/英里)  0x00 :  无效；0x01 : km 公里   0x02 :  英里
  */
 @property (nonatomic,assign) NSInteger walkRunUnit;
+
+/**
+ 步幅长度的单位设置(公制/英制) 0：无效  1：cm  2：inch 英寸
+ */
+@property (nonatomic,assign) NSInteger strideLengthUnit;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -4070,6 +4855,11 @@
 @property (nonatomic,assign) BOOL achievedRemindOnOff;
 
 /**
+ 设置全天目标步数的UTC时间 无效值：0xFFFF 功能表: __IDO_FUNCTABLE__.funcTable42Model.supportSetStepTime
+ */
+@property (nonatomic,assign) NSInteger setStepTime;
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOSetUserInfoBuletoothModel
@@ -4357,5 +5147,291 @@
  * @return IDOSetCloseDeviceFunctionModel
  */
 + (IDOSetV3MenuListModel *)currentModel;
+
+
+
+@end
+
+#pragma mark - 跨设备数据同步
+@interface IDOSetStrideDeviceInformationModel : IDOBluetoothBaseModel
+
+/**
+ 步数 | step number
+ */
+@property (nonatomic, assign) NSInteger stepNumber;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetStrideDeviceInformationModel
+ */
++ (IDOSetStrideDeviceInformationModel *)currentModel;
+
+@end
+
+#pragma mark - 设置习惯养成
+@interface IDOSetV3HabitFormationItemModel: IDOBluetoothBaseModel
+
+/**
+ 习惯类型
+ 无: 0, 起床: 1, 刷牙: 2, 早餐: 3, 遛狗: 4, 上学: 5, 午餐: 6, 运动: 7, 回家: 8, 晚餐: 9,
+ 做家务: 10, 作业: 11, 阅读: 12, 睡觉: 13 自定义类型：255
+ */
+@property (nonatomic, assign) NSInteger type;
+
+/**
+ 习惯类型的id，ID是唯一的 不允许相同
+ */
+@property (nonatomic, assign) NSInteger habitId;
+
+/**
+ 总开关
+ */
+@property (nonatomic, assign) BOOL onOff;
+
+/**
+ 提醒时间(时)
+ */
+@property (nonatomic, assign) NSInteger hour;
+
+/**
+ 提醒时间(分)
+ */
+@property (nonatomic, assign) NSInteger minute;
+
+/**
+ * 重复集合 [星期一、星期二、星期三、星期四、星期五、星期六、星期日]
+ * Repeat collection [monday,tuesday,wednesday,thursday,friday,saturday,sunday]
+ */
+@property (nonatomic,copy) NSArray<NSNumber *> * repeat;
+
+/**
+ 奖励
+ */
+@property (nonatomic, assign) NSInteger reward;
+
+/**
+ 自定义习惯类型名字长度 字节数
+ */
+@property (nonatomic, assign) NSInteger customNameLen;
+
+/**
+ 自定义习惯类型名字内容 最大长度16个字节
+ */
+@property (nonatomic, copy) NSString* customNameContent;
+
+@end
+
+@interface IDOSetV3HabitFormationModel: IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger habitVersion;
+
+/**
+ 操作类型 0:无效 1:增 2:删 3:查 4:改
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 习惯个数，最大30个
+ */
+@property (nonatomic, assign) NSInteger itemsNum;
+
+/**
+ 习惯item
+ */
+@property (nonatomic, copy)  NSArray<IDOSetV3HabitFormationItemModel *>* items;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetStrideDeviceInformationModel
+ */
++ (IDOSetV3HabitFormationModel *)currentModel;
+
+@end
+
+@interface IDOWeatherSwitchStateModel: IDOBluetoothBaseModel
+
+
+@property (nonatomic, assign) BOOL isOnOff;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetStrideDeviceInformationModel
+ */
++ (IDOWeatherSwitchStateModel *)currentModel;
+
+@end
+
+#pragma mark === V3 家庭步数  ===
+@interface IDOV3SetFamilyStepItemModel : IDOBluetoothBaseModel
+
+/**
+ 家庭成员的步数值
+ */
+@property (nonatomic, assign) NSInteger steps;
+
+/**
+ 家庭成员名字
+ */
+@property (nonatomic, copy) NSString * name;
+
+@end
+
+@interface IDOV3SetFamilyStepModel : IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger familyStepVersion;
+
+/**
+ 操作类型 0:无效 1:发送
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 家庭成员个数 最多10个
+ */
+@property (nonatomic, assign) NSInteger itemsNum;
+
+@property (nonatomic, copy) NSArray<IDOV3SetFamilyStepItemModel*> *items;
+
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetStrideDeviceInformationModel
+ */
++ (IDOV3SetFamilyStepModel *)currentModel;
+
+@end
+
+@interface IDOV3SetAppBaseInformationModel : IDOBluetoothBaseModel
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger baseInfoVersion;
+
+/**
+ 操作类型 0:无效 1:发送
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 用户名字
+ */
+@property (nonatomic, copy) NSString* userName;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOSetStrideDeviceInformationModel
+ */
++ (IDOV3SetAppBaseInformationModel *)currentModel;
+
+@end
+
+#pragma mark === V3 戒指手势控制  ===
+@interface IDOV3SetGestureTypeItemModel : NSObject
+
+/**
+ 手势类型 | gesture type
+ 
+ */
+@property (nonatomic, assign) NSInteger gestureType;
+
+@end
+
+@interface IDOV3SetGestureSubFunctionItemModel : NSObject
+/**
+ 子功能类型 | sub function type
+ */
+@property (nonatomic, assign) NSInteger subFunctionType;
+
+/**
+ 手势个数[最大5] ｜ gesture item count（maximum of 5）
+ */
+@property (nonatomic, assign) NSInteger gestureItemCount;
+
+/**
+ 手势类型items ｜ gesture type items
+ */
+@property (nonatomic, copy) NSArray<IDOV3SetGestureTypeItemModel*> *gestureTypeItems;
+
+@end
+
+@interface IDOV3SetGestureFunctionItemModel : NSObject
+
+/**
+ 功能开关 0xAA:打开 0x55:关闭 | function switch  0xAA: Open 0x55: Close
+ */
+@property (nonatomic, assign) NSInteger functionSwitch;
+
+/**
+ 功能类型  | function type
+ 枚举值    手势控制功能(functionType)    手势控制子功能(subFunctionType)    手势类型(gestureType)
+ 0x01     控制通话                     0x01：接听电话 0x02：挂断电话       0x01：手掌翻转90度2次  0x02：弹2下
+ 0x02     控制拍照                     0x01：遥控拍照                    0x01：手掌翻转90度2次  0x02：弹2下
+ 0x03     控制音乐                     0x01：控制音乐下一曲               0x01：手掌翻转90度2次  0x02：弹2下
+ */
+@property (nonatomic, assign) NSInteger functionType;
+
+/**
+ 手势子功能个数[最大5] | gesture sub function count (maximum of 5）
+ */
+@property (nonatomic, assign) NSInteger gestureSubFunctionCount;
+
+/**
+ 手势子功能items | gesture sub function items
+ */
+@property (nonatomic, copy) NSArray<IDOV3SetGestureSubFunctionItemModel*>* gestureSubFunctionItems;
+
+
+@end
+
+@interface IDOV3SetGestureControlModel : IDOBluetoothBaseModel
+
+/**
+ 版本号 默认0x00 | The default version number is 0x00
+ */
+@property (nonatomic, assign) NSInteger gcVersion;
+
+/**
+ 0x01:设置  0x02:获取 0x03:获取支持配置项 | 0x01:Set  0x02:Get  0x03:Get a supported configuration
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 手势控制开关 0xAA:开  0x55:关 | Gesture control switch 0xAA: On 0x55: Off
+ */
+@property (nonatomic, assign) NSInteger onOff;
+
+/**
+ 手势功能的个数[最大10] | Number of gesture functions [Max 10]
+ */
+@property (nonatomic, assign) NSInteger functionItemCount;
+
+/**
+ 手势功能items | Gesture function items
+ */
+@property (nonatomic, copy) NSArray<IDOV3SetGestureFunctionItemModel*>* functionItems;
+
+/**
+ 支持的手势功能配置项 获取支持的配置项才有效| Supported Gesture function configuration options
+ */
+@property (nonatomic, copy) NSArray<IDOV3SetGestureFunctionItemModel*>* supportFunctionItems;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOV3SetGestureControlModel
+ */
++ (IDOV3SetGestureControlModel *)currentModel;
 
 @end

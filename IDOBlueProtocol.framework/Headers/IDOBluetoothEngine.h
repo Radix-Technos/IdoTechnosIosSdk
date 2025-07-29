@@ -72,6 +72,10 @@
 @property (nonatomic,strong) CBCharacteristic * alipayAuthCharacteristic;
 
 /**
+ * nordic OTA 命令服务特征 | nordic OTA Command Service Features
+ */
+@property (nonatomic,strong) CBCharacteristic * smsCharacteristic;
+/**
  * 功能列表 | Function List
  */
 @property (nonatomic,strong) IDOGetDeviceFuncBluetoothModel * funcTableModel;
@@ -80,6 +84,8 @@
  软硬件版本信息
  */
 @property (nonatomic,strong) IDOGetVersionInfoBluetoothModel * versionModel;
+
+- (void)resetConnect;
 
 @end
 
