@@ -68,7 +68,17 @@ typedef NS_ENUM(NSInteger, IDO_DATA_FILE_TRAN_TYPE) {
     /**
      应用列表壁纸文件 传动图| Application list wallpaper
      */
-    IDO_DATA_FILE_TRAN_APPLICATION_LIST_WALLPAPER_GIF_TYPE = 8
+    IDO_DATA_FILE_TRAN_APPLICATION_LIST_WALLPAPER_GIF_TYPE = 8,
+    
+    /**
+     离线地图文件
+     */
+    IDO_DATA_FILE_TRAN_OFFLINE_MAP_TYPE = 9,
+    
+    /**
+     路线轨迹文件
+     */
+    IDO_DATA_FILE_TRAN_TRACK_TYPE = 10
 };
 
 /**

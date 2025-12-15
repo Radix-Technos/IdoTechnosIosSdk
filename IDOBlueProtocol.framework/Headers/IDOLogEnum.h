@@ -302,7 +302,20 @@ typedef NS_ENUM(NSInteger, IDO_RECORD_LOG_TYPE)  {
     /**
      同步经期历史数据
      */
-    IDO_SYNC_HISTORICAL_MENSTRUATION_LOG
+    IDO_SYNC_HISTORICAL_MENSTRUATION_LOG,
+    
+    /**
+     * 同步数据融合
+     * Synchronous multi activity
+     */
+
+    IDO_SYNC_MULTI_ACTIVITY_LOG,
+    
+    /**
+     * 离线地图文件传输
+     * IDO_OFFLINE_MAP_FILE_LOG
+     */
+    IDO_OFFLINE_MAP_FILE_TRANSMISSION_LOG
 };
 
 typedef NS_ENUM(NSInteger, IDO_FLASH_LOG_TYPE)  {

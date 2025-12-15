@@ -668,7 +668,7 @@ max step stride
          @"stage_type": @(1),//当前训练步骤类型
          @"repeat_num": @(0),//当前重复次数
          @"stage_data_num": @(0), //当前阶段数据项个数,最大10个
-         @"stage_data_type_0x60":
+         @"stage_data_type_item":
              @[
                  @{
                      @"stage_support_type": @(0),//当前训练步骤的训练数据类型
@@ -719,6 +719,94 @@ max step stride
  V60版本 最慢公里配速 s/km
  */
 @property (nonatomic,assign) NSInteger slowestKmPace;
+
+/**
+ 心率区间模式 0x00:最大心率模式 0x01:储备心率模式
+ */
+@property (nonatomic,assign) NSInteger heartRateZonesMode;
+
+/**
+ 轻松跑累计时长 (秒钟)
+ */
+@property (nonatomic,assign) NSInteger easyZoneTime;
+
+/**
+ 马拉松累计时长 (秒钟)
+ */
+@property (nonatomic,assign) NSInteger marathonZoneTime;
+
+/**
+ 乳酸阈值强度累计时长 (秒钟)
+ */
+@property (nonatomic,assign) NSInteger thresholdZoneTime;
+
+/**
+ 无氧耐力区间累计时长 (秒钟)
+ */
+@property (nonatomic,assign) NSInteger anaerobicZoneTime;
+
+/**
+ 最大摄氧量强度累计时长 (秒钟)
+ */
+@property (nonatomic,assign) NSInteger intervalZoneTime;
+
+/**
+ 圈数，最大999圈
+ */
+@property (nonatomic,assign) NSInteger lapCount;
+
+/**
+ 圈数据详情 最多999圈
+ NSArray *lapItems =  @[
+     @{
+         @"lap_data_num":@(1),//圈数据个数
+         @"lap_data_item":@[
+             @{
+                 @"lap_data_type":@(1),//圈数据类型
+                 @"lap_data_val":@(1)//圈数据值，有些数据是带符号的，所以统一使用int
+             }
+         ],//圈数据列表，最多10个
+     }
+ ];
+ 
+ | 圈数据支持的数据类型 | 索引值 |
+ | ------------------------------------------------- | ------ |
+ | 无(无效)                                          | 0x00   |
+ | 单圈距离(单位：米)                                  | 0x01   |
+ | 单圈时长(单位：秒)                                  | 0x02   |
+ | 单圈配速(单位：s/km)                                | 0x03   |
+ | 单圈速度(单位：km/h, 100倍)                         | 0x04   |
+ | 单圈步频(单位：步/分)                               | 0x05   |
+ | 单圈心率                                           | 0x06   |
+ | 单圈海拔上升高度，无效值为0x7FFF(单位：米)            | 0x07   |
+ | 单圈海拔下降高度，无效值为0x7FFF(单位：米)            | 0x08   |
+ | 单圈步幅(单位：厘米) | 0x09 |
+ */
+@property (nonatomic,copy) NSArray<NSDictionary*>* lapItems;
+
+/**
+ 地点标志信息详情数据个数，最大支持300个
+ */
+@property (nonatomic,assign) NSInteger locationMarkerItemsCount;
+
+/**
+ 地点标志详情 最多300个
+ @[
+     @{
+         @"location_name":@"深圳",//地点名称
+         @"longitude":@"112.45",//经度
+         @"latitude":@"145.44",//纬度
+         @"altitude":@(0)//海拔高度 单位米 范围-500~9999 无效值0X7FFF
+     }
+ ];
+
+ */
+@property (nonatomic,copy) NSArray<NSDictionary*>* locationMarkerItems;
+
+/**
+ 最慢速度  km/h  固件是 扩大100倍
+ */
+@property (nonatomic,assign) NSInteger slowestSpeed;
 
 @end
 

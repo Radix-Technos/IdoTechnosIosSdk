@@ -173,7 +173,7 @@
 @property (nonatomic,assign) NSUInteger isMenstrualEnd;
 
 /**
- 修改项   0:无效 1:新增 2:修改 3:删除
+ 修改项   0:无效 1:新增 2:修改 3:删除  (此字段查询有效)
  */
 @property (nonatomic,assign) NSUInteger  changeType;
 

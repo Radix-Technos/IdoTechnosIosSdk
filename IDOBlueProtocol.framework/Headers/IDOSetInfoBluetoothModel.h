@@ -11,6 +11,113 @@
 #import "IDOBluetoothBaseModel.h"
 #endif
 
+#pragma mark ===  轨迹路线 ====
+@interface IDOV3SetTrackInfoModel: NSObject
+/**
+ 轨迹文件名(运动路线名称)
+ */
+@property (nonatomic, copy) NSString* name;
+
+/**
+ 运动路线距离，单位：米
+ */
+@property (nonatomic, assign) NSInteger distance;
+
+/**
+ 运动路线推荐时长，单位：秒
+ */
+@property (nonatomic, assign) NSInteger duration;
+
+/**
+ 轨迹路线文件路径（.gpx文件）
+ */
+@property (nonatomic, copy) NSString* filePath;
+
+/**
+ 运动路线类型：0 无效，1 步行类，2 骑行类
+ */
+@property (nonatomic, assign) NSInteger type;
+
+@end
+
+#pragma mark ==== 离线地图设置====
+@interface IDOV3SetOfflineMapAuthCodeModel: NSObject
+
+/**
+ 授权码长度 操作(2:下发授权码)有效 最大长度64字节
+ */
+@property (nonatomic, copy) NSString* authorizationCode;
+
+@end
+
+@interface IDOV3SetOfflineMapNameModel: NSObject
+
+/**
+ 文件名
+ */
+@property (nonatomic, copy) NSString* name;
+
+
+/**
+ zip 文件解压后的目录路径
+ */
+@property (nonatomic, copy) NSString* filePath;
+
+@end
+
+@interface IDOV3SetOfflineMapInfoModel: NSObject
+
+/**
+ 文件名
+ */
+@property (nonatomic, copy) NSString* name;
+
+/**
+ 地图大小
+ */
+@property (nonatomic, assign) NSInteger size;
+
+/**
+ 离线地图文件个数
+ */
+@property (nonatomic, assign) NSInteger fileCount;
+
+/**
+ 离线地图文件的具体信息，最大支持13个
+ */
+@property (nonatomic, copy) NSArray<IDOGetOfflineMapFileInfoModel *>* files;
+
+
+/**
+ zip 文件解压后的目录路径
+ */
+@property (nonatomic, copy) NSString* filePath;
+@end
+
+
+@interface IDOV3SetOfflineMapModel: NSObject
+
+/**
+ 版本号
+ */
+@property (nonatomic, assign) NSInteger omversion;
+
+/**
+ 操作类型 0:无效  4:删除地图  5:查询单个地图详细信息 6:添加单个地图
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 地图详情 操作(6:添加单个地图)有效
+ */
+@property (nonatomic, copy) NSArray<IDOV3SetOfflineMapInfoModel *> *mapItems;
+
+/**
+ 地图名字详情 操作(4:删除地图，支持最多一次性30个；5:查询单个地图细信息，只支持一次查询1个)有效
+ */
+@property (nonatomic, copy) NSArray<IDOV3SetOfflineMapNameModel *> *mapNameItems;
+
+@end
 
 #pragma mark ==== 情绪健康新数据新模型 ====
 @interface IDOV3EmotionPressureReminderConfigModel: IDOBluetoothBaseModel
@@ -1143,6 +1250,27 @@ dataType 0x05：日记 使用此字段
  结束  分
  */
 @property (nonatomic,assign) NSInteger endMinute;
+
+/**
+ 睡眠提醒开关 
+ */
+@property (nonatomic,assign) BOOL sleepRemindSwitch;
+
+/**
+ 睡眠提醒时间(小时)
+ */
+@property (nonatomic,assign) NSInteger sleepRemindHour;
+
+/**
+ 睡眠提醒时间(分钟)
+ */
+@property (nonatomic,assign) NSInteger sleepRemindMinute;
+
+/**
+ 重复周期，0~7分别是星期1到星期7，1重复，0不重复
+ */
+@property (nonatomic,copy) NSArray<NSNumber*> *repetitions;
+
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -2383,7 +2511,7 @@ dataType 0x05：日记 使用此字段
  */
 @property (nonatomic,assign) BOOL autoPauseOnOff;
 /**
- 结束提醒开关 | end remind on off
+ 运动自动结束提醒开关 | end remind on off
  */
 @property (nonatomic,assign) BOOL endRemindOnOff;
 
@@ -2404,6 +2532,55 @@ dataType 0x05：日记 使用此字段
  自动识别智能跳绳开关 | sport_smart_rope
  */
 @property (nonatomic,assign) BOOL sportSmartRope;
+
+/**
+ 以下字段获取有效
+ 需要__IDO_FUNCTABLE__.funcTable39Model.autoActivitySetGetUseNewStructExchange 开启才有效
+ */
+/**
+ 支持自动识别走路开关
+ */
+@property (nonatomic,assign) BOOL supportSportWalkOnOff;
+
+/**
+ 支持自动识别跑步开关
+ */
+@property (nonatomic,assign) BOOL supportsSportRunOnOff;
+
+/**
+ 支持自动识别自行车开关
+ */
+@property (nonatomic,assign) BOOL supportSportBicycleOnOff;
+
+/**
+ 支持运动自动暂停开关
+ */
+@property (nonatomic,assign) BOOL supportAutoPauseOnOff;
+
+/**
+ 支持运动自动结束提醒开关
+ */
+@property (nonatomic,assign) BOOL supportEndRemindOnOff;
+
+/**
+ 支持自动识别椭圆机开关
+ */
+@property (nonatomic,assign) BOOL supportSportEllipticalOnOff;
+
+/**
+ 支持自动识别划船机开关
+ */
+@property (nonatomic,assign) BOOL supportSportRowingOnOff;
+
+/**
+ 支持自动识别游泳开关
+ */
+@property (nonatomic,assign) BOOL supportSportSwimOnOff;
+
+/**
+ 支持自动识别智能跳绳开关
+ */
+@property (nonatomic,assign) BOOL supportsSportSmartRope;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -3835,6 +4012,71 @@ dataType 0x05：日记 使用此字段
  */
 @property (nonatomic,assign) NSInteger stopMinute;
 
+
+/**
+ 储备心率模式:(最大心率-静息心率）*储备心率%+静息心率，app根据界面设置的最大心率值和静息心率值，
+ 计算好各个区间值直接下发给固件
+ 轻松跑 储备心率59%~74%
+ 马拉松配速 储备心率74%~84%
+ 乳酸阈值强度 储备心率84%~88%
+ 无氧耐力区间 储备心率88%~95%
+ 最大摄氧量强度 储备心率95%~100%
+ 
+ Heart Rate Reserve Mode:
+ Formula: (Maximum Heart Rate − Resting Heart Rate) × Heart Rate Reserve % + Resting Heart Rate
+
+ The app will calculate the ranges based on the maximum and resting heart rates set on the interface and send them directly to the firmware.
+
+ Easy Run: 59%–74% of Heart Rate Reserve
+ Marathon Pace: 74%–84% of Heart Rate Reserve
+ Lactate Threshold Intensity: 84%–88% of Heart Rate Reserve
+ Anaerobic Endurance Zone: 88%–95% of Heart Rate Reserve
+ Maximal Oxygen Uptake Intensity (VO₂max): 95%–100% of Heart Rate Reserve
+ **/
+
+/**
+  轻松跑 储备心率59%~74%
+ */
+@property (nonatomic,assign) NSInteger easyRun;
+
+/**
+  马拉松配速 储备心率74%~84%
+ */
+@property (nonatomic,assign) NSInteger marathonPace;
+
+/**
+ 乳酸阈值强度 储备心率84%~88%
+ */
+@property (nonatomic,assign) NSInteger lactateThresholdIntensity;
+
+/**
+ 无氧耐力区间 储备心率88%~95%
+ */
+@property (nonatomic,assign) NSInteger anaerobicEnduranceZone;
+
+/**
+ 最大摄氧量强度 储备心率95%~100%
+ */
+@property (nonatomic,assign) NSInteger maximalOxygenUptakeIntensity;
+
+/**
+ 下面字段受__IDO_FUNCTABLE__.funcTable42Model.supportHeartRateResrveZones 控制.开启,这个字段才起作用
+ 心率区间模式,0x00:最大心率模式,0x01:储备心率模式
+ 
+ 备注:在最大心率区间模式下，跑步课程和跑步计划需要默认使用储备心率
+ (其中最大心率值默(认220-年龄)和静息心率值默认60)。
+ 选择的最大心率区间模式。该协议下发的都是最大心率区间的数据。
+ 储备心率区间由设备根据默认值自己计算,如果之前设置过储备心率,那就不用根据默认值计算。
+ app上选择的是储备心率区间模式,那协议发的是储备心率区间的数据。
+ */
+@property (nonatomic,assign) NSInteger heartRateZonesMode;
+
+/**
+ 下面字段受__IDO_FUNCTABLE__.funcTable42Model.supportHeartRateZonesHrMaxSet控制.开启才支持设置,否则固定使用220-年龄
+ app上设置的最大心率值(默认220-年龄),和心率上限值是不一样的
+ */
+@property (nonatomic,assign) NSInteger userMaxHrValue;
+
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
@@ -4744,6 +4986,41 @@ dataType 0x05：日记 使用此字段
  Todoist
  */
 @property (nonatomic,assign) BOOL isOnTodoist;
+
+/**
+ Signal
+ */
+@property (nonatomic,assign) BOOL isOnSignal;
+
+/**
+ 小红书(rednote)
+ */
+@property (nonatomic, assign) BOOL isOnRedNote;
+
+/**
+ Ryze Fit
+ */
+@property (nonatomic, assign) BOOL isOnRyzeFit;
+
+/**
+ Ryze Go
+ */
+@property (nonatomic, assign) BOOL isOnRyzeGo;
+
+/**
+ 通知支持google messages，type：0x7B
+ */
+@property (nonatomic, assign) BOOL isOnGoogleMessages;
+
+/**
+ 通知支持apple calendar，type：0x7C
+ */
+@property (nonatomic, assign) BOOL isOnAppleCalendar;
+
+/**
+ 通知支持apple mail，type：0x7D
+ */
+@property (nonatomic, assign) BOOL isOnAppleMail;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

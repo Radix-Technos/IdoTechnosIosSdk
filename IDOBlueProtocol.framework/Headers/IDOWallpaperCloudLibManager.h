@@ -16,7 +16,10 @@ typedef enum : NSUInteger {
     IDOWallpaperWCInstallFaceLogUpgradIng,    //3 进入进度大于0的升级界面 ｜ The dial is being installed
     IDOWallpaperWCInstallFaceLogUpgradeSucc,  //4 升级成功 ｜ The dial is installed successfully
     IDOWallpaperWCInstallFaceLogUpgradeFail,  //5 失败 ｜ Dial installation failed
-    IDOWallpaperWCInstallFaceLogUpgradeFail_IrregularImageSize,  //6 图片尺寸不合规
+    
+    IDOWallpaperWCInstallFaceLogUpgradeFail_IrregularImageSize,  //6 图片尺寸不合规 | irregular image size
+    
+    IDOWallpaperWCInstallFaceLogDeviceNotEnoughSpace,// 7 没有足够空间 | device not enough space
 } IDOWallpaperWCInstallFaceLog;
 NS_ASSUME_NONNULL_BEGIN
 

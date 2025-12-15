@@ -210,6 +210,113 @@
  */
 @property (nonatomic,assign) NSInteger poolDistanceDecimal;
 
+/**
+ V60 版本间歇训练
+ NSArray<NSDictionary*>* intervalItemsV60 = @[
+     @{
+         @"stage_type": @(1),//当前训练步骤类型
+         @"repeat_num": @(0),//当前重复次数
+         @"stage_data_num": @(0), //当前阶段数据项个数,最大10个
+         @"stage_data_type_item":
+             @[
+                 @{
+                     @"stage_support_type": @(0),//当前训练步骤的训练数据类型
+                     @"stage_data_value": @(0)//时间值单位s，距离单位m, 卡路里单位大卡, 配速单位s/km， 速度单位km/h乘以100倍
+                 }
+             ]//当前训练步骤的训练数据
+     }
+ ];
+ 训练步骤类型    索引值
+ 无(无效)    0x00
+ 热身    0x01
+ 训练    0x02
+ 休息    0x03
+ 放松    0x04
+ 
+ 训练步骤支持的数据类型    索引值
+ 无(无效)    0x00
+ 持续时间    0x01
+ 平均心率    0x02
+ 距离    0x03
+ 卡路里    0x04
+ 平均配速    0x05
+ 平均速度    0x06
+ */
+@property (nonatomic, copy) NSArray<NSDictionary*>* intervalItemsV60;
+
+/**
+ V60版本 间歇训练详情个数,当前阶段item最大个数110
+ */
+@property (nonatomic,assign) NSInteger interval_train_item_count;
+
+/**
+ 心率间隔 单位秒
+ */
+@property (nonatomic,assign) NSInteger hrDataIntervalSec;
+
+@property (nonatomic,assign) NSInteger avgHrValue;
+
+@property (nonatomic,assign) NSInteger maxHrValue;
+
+@property (nonatomic,assign) NSInteger minHrValue;
+
+// 心率数据值数量
+@property (nonatomic, assign) NSInteger hrDataValueNum;
+
+// 心率区间最大心率值配置，用于计算心率区间用的
+@property (nonatomic, assign) NSInteger hrZoneMaxVal;
+
+// 实时配速保存时间间隔，单位秒
+@property (nonatomic, assign) NSInteger realPaceSaveInterval;
+
+// 最快配速 秒/百米 一百米用了多少秒 单位秒
+@property (nonatomic, assign) NSInteger fastPace;
+
+// 最慢配速 秒/百米 一百米用了多少秒 单位秒
+@property (nonatomic, assign) NSInteger slowPace;
+
+// 实时配速个数
+@property (nonatomic, assign) NSInteger realPaceCount;
+
+// 热身运动的累计时长 秒钟
+@property (nonatomic, assign) NSInteger warmUpTime;
+
+// 脂肪燃烧的累计时长 秒钟
+@property (nonatomic, assign) NSInteger fatBurningTime;
+
+// 有氧运动的累计时长 秒钟
+@property (nonatomic, assign) NSInteger aerobicExerciseTime;
+
+// 无氧运动的累计时长 秒钟
+@property (nonatomic, assign) NSInteger anaerobicExerciseTime;
+
+// 极限锻炼的累计时长 秒钟
+@property (nonatomic, assign) NSInteger extremeExerciseTime;
+
+// 心率区间模式,0x00:最大心率模式,0x01:储备心率模式
+@property (nonatomic, assign) NSInteger heartRateZonesMode;
+
+// 轻松跑
+@property (nonatomic, assign) NSInteger easyZoneTime;
+
+// 马拉松
+@property (nonatomic, assign) NSInteger marathonZoneTime;
+
+// 乳酸阈值强度
+@property (nonatomic, assign) NSInteger thresholdZoneTime;
+
+// 无氧耐力区间
+@property (nonatomic, assign) NSInteger anaerobicZoneTime;
+
+// 最大摄氧量强度
+@property (nonatomic, assign) NSInteger intervalZoneTime;
+
+//实时配速数组
+@property (nonatomic, copy) NSArray<NSNumber *>*  paceRealTimeItems;
+
+//心率值
+@property (nonatomic, copy) NSArray<NSNumber *>* hrDataValueItems;
+
 @end
 
 

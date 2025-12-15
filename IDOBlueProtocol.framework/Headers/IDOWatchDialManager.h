@@ -35,6 +35,21 @@ typedef void(^_Nullable setComplete)(int errorCode);
 @property (nonatomic,assign) NSInteger blockSize;
 
 /**
+ 压缩方式 0x01:lz4压缩  0x02:fastlz压缩 0x03:分块压缩 0x04:index8格式
+ */
+@property (nonatomic,assign) NSInteger compressionMethod;
+
+/**
+ 分块宽度
+ */
+@property (nonatomic,assign) NSInteger tileW;
+
+/**
+ 分块高度
+ */
+@property (nonatomic,assign) NSInteger tileH;
+
+/**
  * 获取当前设备屏幕信息
  * Gets the current device screen information
  */
@@ -130,6 +145,23 @@ IDOWatchDialManager * _Nonnull initWatchDialManager(void);
             iwfPath:(NSString *_Nullable*_Nullable)iwfPath
            fileSize:(unsigned long long *_Nullable)fileSize;
 
+
+/// 云端表盘文件制作iwf文件
+/// - Parameters:
+///   - zipPath: 表盘zip路径
+///   - colorFormat: 颜色格式
+///   - compressionMethod: 压缩方式 0x01:lz4压缩  0x02:fastlz压缩 0x03:分块压缩 0x04:index8格式
+///   - titleW: 分块宽度
+///   - titleH: 分块高度
+///   - iwfPath: iwf文件路径
+///   - fileSize: 文件大小
++ (BOOL)makeIwfFile:(NSString * _Nullable)zipPath
+        colorFormat:(NSInteger)colorFormat
+  compressionMethod:(NSInteger)compressionMethod
+              tileW:(NSInteger)tileW
+              tileH:(NSInteger)tileH
+            iwfPath:(NSString * _Nullable  * _Nullable)iwfPath
+           fileSize:(unsigned long long * _Nullable)fileSize;
 /**
  iwf 文件目录地址
  根据目录自行管理文件
