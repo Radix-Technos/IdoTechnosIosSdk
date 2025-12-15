@@ -75,6 +75,15 @@
  * nordic OTA 命令服务特征 | nordic OTA Command Service Features
  */
 @property (nonatomic,strong) CBCharacteristic * smsCharacteristic;
+
+/**
+ * 炬芯新 OTA 命令写服务特征 | actions OTA Command Service Features
+ */
+@property (nonatomic,strong) CBCharacteristic * actionsOTACharacteristic;
+
+@property (nonatomic,assign,) BOOL isOpenActionsOTA;
+
+
 /**
  * 功能列表 | Function List
  */

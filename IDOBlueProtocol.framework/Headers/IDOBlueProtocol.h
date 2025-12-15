@@ -61,6 +61,7 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 
 #import <IDOBlueProtocol/IDOFoundationCommand.h>
 #import <IDOBlueProtocol/IDOFoundationCommand+GestureControl.h>
+#import <IDOBlueProtocol/IDOFoundationCommand+OfflineMap.h>
 
 #import <IDOBlueProtocol/IDODataMigrationManager.h>
 #import <IDOBlueProtocol/IDOTransferFileManager.h>
@@ -96,4 +97,6 @@ FOUNDATION_EXPORT const unsigned char IDOBlueProtocolVersionString[];
 #import <IDOBlueProtocol/IDOPhotoDialManager.h>
 #import <IDOBlueProtocol/IDOWriteDataCommand.h>
 #import <IDOBlueProtocol/IDOSmartRingManager.h>
+#import <IDOBlueProtocol/IDOOfflineMapManager.h>
+#import <IDOBlueProtocol/IDOTrackManager.h>
 

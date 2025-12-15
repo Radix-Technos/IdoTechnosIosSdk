@@ -524,5 +524,46 @@
  */
 @property (nonatomic,assign) NSInteger slowestKmPace;
 
+/**
+ utc 结束时间
+ utc end time
+ */
+@property (nonatomic,assign) NSInteger endTime;
+
+/**
+ 轻松跑时长(秒钟)
+ */
+@property (nonatomic,assign) NSInteger easyZoneSecond;
+
+/**
+ 马拉松时长(秒钟
+ */
+@property (nonatomic,assign) NSInteger  marathonZoneSecond;
+
+/**
+ 乳酸阈值强度时长(秒钟
+ */
+@property (nonatomic,assign) NSInteger  thresholdZoneSecond;
+
+/**
+ 无氧耐力区间时长(秒钟
+ */
+@property (nonatomic,assign) NSInteger  anaerobicZoneSecond;
+
+/**
+ 最大摄氧量强度时长(秒钟
+ */
+@property (nonatomic,assign) NSInteger  intervalZoneSecond;
+
+/**
+ 心率区间模式 0 最大心率模式 1: 储备心率模式
+ */
+@property (nonatomic,assign) NSInteger  heartRateZonesMode;
+
+/**
+ 最慢 速度 km/h（扩大100倍的速度）
+ */
+@property (nonatomic,assign) NSInteger  minSpeed;
+
 @end
 

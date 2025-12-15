@@ -10,6 +10,218 @@
 #else
 #import "IDOBluetoothBaseModel.h"
 #endif
+
+#pragma mark ==== 离线地图的配置信息模型 ====
+@interface IDOGetV3OfflineMapSummaryInfoModel: NSObject
+
+/**
+ 地图名字 最大30个字节
+ */
+@property (nonatomic, copy) NSString* name;
+
+/**
+ 地图大小
+ */
+@property (nonatomic, assign) NSInteger size;
+
+/**
+ 下载状态：0 无效，1 已下载完成，2 未下载完
+ */
+@property (nonatomic, assign) NSInteger downloadStatus;
+
+@end
+
+
+@interface IDOGetOfflineMapFileInfoModel: NSObject
+
+/**
+ 文件名
+ */
+@property (nonatomic, copy) NSString* name;
+
+/**
+ 文件大小
+ */
+@property (nonatomic, assign) NSInteger size;
+
+/**
+ 文件校验码
+ */
+@property (nonatomic, assign) NSInteger crc16;
+
+/**
+ 相对MAP地图存储目录路径去掉前面地图名
+*/
+@property (nonatomic, copy) NSString* path;
+
+@end
+
+@interface IDOGetV3OfflineMapItemModel: NSObject
+
+/**
+ 地图名字 最大30个字节
+ */
+@property (nonatomic, copy) NSString* name;
+
+/**
+ 地图大小
+ */
+@property (nonatomic, assign) NSInteger size;
+
+/**
+ 离线地图文件个数
+ */
+@property (nonatomic, assign) NSInteger fileCount;
+
+/**
+ 已下载文件个数
+ */
+@property (nonatomic, assign) NSInteger downloadFileCount;
+
+/**
+ 已下载文件总大小
+ */
+@property (nonatomic, assign) NSInteger downloadFileTotalSize;
+
+/**
+ 已下载文件的具体信息，最大支持13个
+ */
+@property (nonatomic, copy) NSArray<IDOGetOfflineMapFileInfoModel *> *downloadFiles;
+
+
+@end
+
+
+@interface IDOGetV3OfflineMapConfigItemModel: NSObject
+
+/**
+ 固件地图分配可使用总空间
+ */
+@property (nonatomic, assign) NSInteger  totalSpace;
+
+/**
+ 固件地图剩余可使用空间
+ */
+@property (nonatomic, assign) NSInteger availableSpace;
+
+/**
+ 总的items的个数 地图详情个数
+ */
+@property (nonatomic, assign) NSInteger allItemsNum;
+
+/**
+ 已经发送/接收的items的个数
+ */
+@property (nonatomic, assign) NSInteger finishItemsNum;
+
+/**
+ 当前包items的个数 查询有效
+ */
+@property (nonatomic, assign) NSInteger curItemsNum;
+
+/**
+ 固件已有地图文件信息详情
+ */
+@property (nonatomic, copy) NSArray<IDOGetV3OfflineMapSummaryInfoModel *> *mapItems;
+
+/**
+ 固件支持的轨迹文件最大个数
+ */
+@property (nonatomic, assign) NSInteger supportTrackMumMax;
+
+/**
+ 固件支持的轨迹文件名最大长度
+ */
+@property (nonatomic, assign) NSInteger supportTrackFileNameLenMax;
+
+@end
+
+@interface IDOGetV3OfflineMapInfoReplyModel: IDOBluetoothBaseModel
+
+/**
+ 版本
+ */
+@property (nonatomic, assign) NSInteger omVersion;
+
+/**
+ 操作类型 0:无效  3:查询固件地图配置信息 5:查询单个地图详细信息
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 固件离线地图的配置信息个数 操作(3:查询固件地图配置信息)有效
+ */
+@property (nonatomic, assign) NSInteger mapConfigCount;
+
+/**
+ 固件地图详情个数 操作（5:查询单个地图详细信息）有效
+ */
+@property (nonatomic, assign) NSInteger mapCount;
+
+/**
+ 固件离线地图的配置信息详情 操作(3:查询固件地图配置信息)有效
+ */
+@property (nonatomic, copy) NSArray<IDOGetV3OfflineMapConfigItemModel *>* mapConfigItems;
+
+/**
+ 固件地图详情 操作（5:查询单个地图详细信息）有效
+ */
+@property (nonatomic, copy) NSArray<IDOGetV3OfflineMapItemModel *>* mapItems;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetAppPackNameStateModel
+ */
++ (IDOGetV3OfflineMapInfoReplyModel *)currentModel;
+
+@end
+
+#pragma mark ==== 离线地图授权信息模型 ====
+@interface IDOGetV3OfflineMapAuthInfoModel: NSObject
+
+/**
+ 是否授权 0:无效 YES:授权 NO:未授权
+ */
+@property (nonatomic, assign) BOOL authIsGranted;
+
+/**
+ device UUID 从服务器获取授权码需要用到
+ */
+@property (nonatomic, copy) NSString* uuid;
+
+@end
+
+@interface IDOGetV3OfflineMapAuthModel: IDOBluetoothBaseModel
+
+/**
+ 版本
+ */
+@property (nonatomic, assign) NSInteger omVersion;
+
+/**
+ 操作类型 0:无效 1:查询授权  2:设置(下发)授权码
+ */
+@property (nonatomic, assign) NSInteger operate;
+
+/**
+ 授权信息详情个数 操作(1:查询授权)有效
+ */
+@property (nonatomic, assign) NSInteger authorizationCount;
+
+/**
+ 授权信息详情  操作(1:查询授权)有效
+ */
+@property (nonatomic, copy) NSArray<IDOGetV3OfflineMapAuthInfoModel *>* authorizationItems;
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetAppPackNameStateModel
+ */
++ (IDOGetV3OfflineMapAuthModel *)currentModel;
+
+@end
 #pragma mark ==== 获取固件留给联系人文件存储上限 ====
 @interface IDOGetContactMaxSizeModel:IDOBluetoothBaseModel
 
@@ -939,6 +1151,53 @@ error flag
 
 @end
 
+#pragma mark ==== 获取第43个功能表model ====
+@interface IDOGetFuncTable43BluetoothModel : IDOBluetoothBaseModel
+/**
+ 支持离线地图
+ */
+@property (nonatomic,assign) BOOL supportOfflineMapInformation;
+
+/**
+ 通知支持google messages，type：0x7B
+ */
+@property (nonatomic,assign) BOOL supportGoogleMessages;
+
+/**
+ 通知支持apple calendar，type：0x7C
+ */
+@property (nonatomic,assign) BOOL supportAppleCalendar;
+
+/**
+ 通知支持apple mail，type：0x7D
+ */
+@property (nonatomic,assign) BOOL supportAppleMail;
+
+/**
+ 开启则支持睡眠提醒
+ */
+@property (nonatomic,assign) BOOL supportSetSleepRemind;
+
+/**
+开启则支持箭步蹲
+*/
+@property (nonatomic,assign) BOOL supportLunge;
+
+/**
+ 开启后 支持固件返回的压缩方式
+ */
+ @property (nonatomic,assign) BOOL supportFirmwareCompressionMethod;
+
+
+/**
+ * @brief 查询数据库,如果查询不到初始化新的model对象
+ * Query the database, if the query does not initialize a new model object
+ * @return IDOGetFuncTable37BluetoothModel
+ */
++ (IDOGetFuncTable43BluetoothModel *)currentModel;
+
+@end
+
 #pragma mark ==== 获取第42个功能表model ====
 @interface IDOGetFuncTable42BluetoothModel : IDOBluetoothBaseModel
 /**
@@ -1184,6 +1443,62 @@ error flag
  根据这个功能表判断app是否显示闹钟名称，开启app不显示闹钟名称
  */
 @property (nonatomic, assign) BOOL supportAppNotDisplayAlarmName;
+
+/**
+ 开了此功能表v2和v3的消息提醒都不支持
+ */
+@property (nonatomic, assign) BOOL notifyMsgNotSupport;
+
+/**
+ 支持勿扰重复周期设置
+ */
+@property (nonatomic, assign) BOOL supportV2DisturbRepetitionsSet;
+
+/**
+ 支持天气开关默认打开
+ */
+@property (nonatomic, assign) BOOL supportWeatherSwitchDefaultOn;
+
+/**
+ 通知支持Signal, type: 0x77
+ */
+@property (nonatomic, assign) BOOL supportSignal;
+
+/**
+ 开启则支持储备心率区间,关闭默认支持的最大心率区间
+ */
+@property (nonatomic, assign) BOOL supportHeartRateResrveZones;
+
+/**
+ 开启则支持心率区间心率最大值设置
+ */
+@property (nonatomic, assign) BOOL supportHeartRateZonesHrMaxSet;
+
+/**
+ 开启后，支持开放水域游泳开启gps
+ */
+@property (nonatomic, assign) BOOL  supportOpenWaterSwimmingWithGps;
+
+/**
+ AAP电量的变化支持根据固件通知显示
+ */
+@property (nonatomic, assign) BOOL  supportBatteryLevelDependFirmware;
+
+/**
+ 通知支持小红书(rednote)，type：0x78
+ */
+@property (nonatomic, assign) BOOL supportRedNote;
+
+/**
+ 通知支持Ryze Fit，type：0x79
+ */
+@property (nonatomic, assign) BOOL supportRyzeFit;
+
+/**
+ 通知支持Ryze Go，type：0x8A
+ */
+@property (nonatomic, assign) BOOL supportRyzeGo;
+
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象
@@ -4634,6 +4949,10 @@ error flag
  */
 @property (nonatomic,strong) IDOGetFuncTable42BluetoothModel      * funcTable42Model;
 
+/**
+ 42功能列表 weather sun time | 42 func table
+ */
+@property (nonatomic,strong) IDOGetFuncTable43BluetoothModel      * funcTable43Model;
 
 /**
  是否支持版本信息 | version information is supported
@@ -4729,8 +5048,23 @@ error flag
 
 /**
  * 手环的平台 | platform for bracelet
- * 0:nordic,10:realtek 8762x ,20:cypress psoc6,30:Apollo3,40:汇顶,50:nordic+泰凌微,
- * 60:泰凌微+5340+no nand flash,70:汇顶+富瑞坤;80:5340;96:杰理;90:炬心; 99:思澈; 98:思澈(芯语物)
+ * 0:nordic,
+ * 10:realtek 8762x ,
+ * 20:cypress psoc6,
+ * 30:Apollo3,
+ * 40:汇顶,
+ * 50:nordic+泰凌微,
+ * 60:泰凌微+5340+no nand flash,
+ * 70:汇顶+富瑞坤;
+ * 80:5340;
+ * 96:杰理;
+ * 90:炬芯       OTA使用文件传输
+ * 91:炬芯新平台  OTA使用厂商提供的OTA SDK
+ * 98:思澈 Nor   OTA使用V2方案 OTA SDK
+ * 99:思澈 Nand  OTA使用V2方案 OTA SDK
+ * 100:思澈 Nor  OTA使用V3方案 OTA SDK
+ * 101:思澈 Nand OTA使用V3方案 OTA SDK
+
  */
 @property (nonatomic,assign) NSInteger platform;
 
@@ -4909,6 +5243,17 @@ error flag
  闹钟重复闹铃次数，默认3次
  */
 @property (nonatomic,assign) NSInteger alarmRepeatTimes;
+
+/**
+ 最小OTA电量 0默认最小30电量
+ */
+@property (nonatomic,assign) NSInteger otaBatteryMin;
+
+/**
+ 女性日常记录支持APP下发的最大数量 0默认最小30天 最大180天
+ //注：后续增加类似获取事件,不需要加对应功能表,0值默认大小,非0值有效
+ */
+@property (nonatomic,assign) NSInteger physiologicalRecordMaxDay;
 
 /**
  * @brief 查询数据库,如果查询不到初始化新的model对象

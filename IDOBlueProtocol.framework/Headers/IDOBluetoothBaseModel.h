@@ -24,7 +24,7 @@
 @property (nonatomic,assign) NSInteger migrationState;
 
 
-+ (IDOBluetoothBaseModel *_Nullable)queryCurrentModelWitch:(NSString *)macAddr uuidStr:(NSString *)uuid;
++ (IDOBluetoothBaseModel *_Nullable)queryCurrentModelWitch:(NSString *_Nullable)macAddr uuidStr:(NSString *_Nullable)uuid;
 
 /**
  * @brief 数据引擎为model赋值 | Assigned to the model

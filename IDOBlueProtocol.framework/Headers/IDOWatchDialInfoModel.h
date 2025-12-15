@@ -39,6 +39,22 @@
 @property (nonatomic,assign) NSInteger blockSize;
 
 /**
+ 压缩方式 0x01:lz4压缩  0x02:fastlz压缩 0x03:分块压缩 0x04:index8格式
+ */
+@property (nonatomic,assign) NSInteger compressionMethod;
+
+/**
+ 分块宽度
+ */
+@property (nonatomic,assign) NSInteger tileWild;
+
+/**
+ 分块高度
+ */
+@property (nonatomic,assign) NSInteger tileHigh;
+
+
+/**
  * @brief 查询数据库,如果查询不到初始化新的model对象
  * Query the database, if the query does not initialize a new model object
  * @return IDOWatchScreenInfoModel
